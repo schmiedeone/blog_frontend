@@ -8,16 +8,16 @@ const Card = ({ article }) => {
       : process.env.REACT_APP_BACKEND_URL + article.image[0].url;
   return (
     <div aria-label="card">
-      <Link to={`/article/${article.id}`} className="uk-link-reset">
-        <div className="uk-card uk-card-muted">
-          <div className="uk-card-media-top">
+      <Link to={`/article/${article.id}`} >
+        <div>
+          <div>
             <img src={imageUrl} alt={article.image.url} height="100px" />
           </div>
-          <div className="uk-card-body">
-            <p id="category" className="uk-text-uppercase">
+          <div>
+            <p id="category" >
               {article.category.name}
             </p>
-            <p id="title" className="uk-text-large">
+            <p id="title">
               {article.title}
             </p>
           </div>

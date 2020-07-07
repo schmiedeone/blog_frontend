@@ -25,7 +25,6 @@ describe("Article", () => {
     expect(await screen.findByLabelText("article banner")).toBeInTheDocument();
     expect(await screen.findAllByRole("heading"));
     expect(await screen.findAllByRole("link"));
-    // expect(await screen.findByLabelText("deck")).toBeInThe
-    
+  
   });
 });

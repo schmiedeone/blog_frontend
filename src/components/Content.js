@@ -8,8 +8,6 @@ import ARTICLES_QUERY from "../queries/article/articles";
 const Content = ({ blogName }) => {
   return (
     <div>
-      {/* <div className="uk-section">
-        <div className="uk-container uk-container-large"> */}
         <div>
           <div>
           <h1>{blogName}</h1>

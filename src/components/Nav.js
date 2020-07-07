@@ -1,3 +1,4 @@
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -5,37 +6,62 @@ import Query from "./Query";
 
 import CATEGORIES_QUERY from "../queries/category/categories";
 
+const useStyles = makeStyles((theme) => ({
+  navBarContainer: {
+    width: "100%",
+  },
+
+  navBar: {
+    width: "80%",
+    margin: "auto",
+    height: "30px",
+    padding: "30px 0 30px 0",
+  },
+
+  navMenuList: {
+    listStyleType: "none",
+  },
+
+  navMenuItem: {
+    textDecoration: "none",
+    display: "block",
+    float:"left",
+  },
+  
+  navHomeButton: {
+    float:"left",
+  },
+  
+  navCategoryButton: {
+    textTransform:"uppercase",
+    float:"right",
+    paddingLeft: "16px",
+  },
+  
+}));
+
 const Nav = ({ name }) => {
+  const classes = useStyles();
   return (
-    <div>
+    <div className={classes.navBarConatiner}>
       <Query query={CATEGORIES_QUERY} id={null}>
         {({ data: { categories } }) => {
           return (
-            <div>
-              {/* <nav className="uk-navbar-container" data-uk-navbar> */}
-                <div>
-                  <div>
-                    <Link to="/">
-                      {name}
-                    </Link>
-                  </div>
-                  <div >
-                    <ul >
-                      {categories.map((category, i) => {
-                        return (
-                          <li key={category.id}>
-                            <Link
-                              to={`/category/${category.id}`}
-                            >
-                              {category.name}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </div>
-              {/* </nav> */}
+            <div className={classes.navBar}>
+              <ul className={classes.navMenuList}>
+                <li key={"homeButton"} className={classes.navHomeButton}>
+                  <Link to="/" className={classes.navMenuItem}>{name}</Link>
+                </li>
+                {categories.map((category, i) => {
+                  return (
+                    <li key={category.id} className={classes.navCategoryButton}>
+                      <Link to={`/category/${category.id}`} className={classes.navMenuItem}>
+                        {category.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           );
         }}
