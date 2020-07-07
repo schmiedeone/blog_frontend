@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   navMenuList: {
+    padding: "0",
     listStyleType: "none",
   },
 

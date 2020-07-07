@@ -27,9 +27,20 @@ const useStyles = makeStyles((theme) => ({
     position: "Relative",
   },
   cardText: {
+    padding: "1.5rem",
+    textAlign: "center",
     // width: "40%",
     // float: "right",
     // padding: "1rem",
+  },
+  cardTitle: {
+    fontSize:"1.5rem",
+  },
+
+  cardCategory: {
+    fontSize:"0.8rem",
+    padding: "0.5rem",
+    textTransform:"uppercase",
   },
 }));
 
@@ -55,9 +66,9 @@ const Card = ({ article }) => {
               }}
             />
           </div>
-          <div>
-            <p id="category">{article.category.name}</p>
-            <p id="title">{article.title}</p>
+          <div className={classes.cardText}>
+            <p id="title" className={classes.cardTitle}>{article.title}</p>
+            <p id="category" className={classes.cardCategory}>{article.category.name}</p>
           </div>
         </div>
       </Link>

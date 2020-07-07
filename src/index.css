@@ -1,13 +1,25 @@
 body {
   /* margin: 0; */
-  font-family: -apple-system, BlinkMacSystemFont, 'Barlow', sans-serif;
+  font-family: 'Barlow', sans-serif;
   /* -webkit-font-smoothing: antialiased; */
   /* -moz-osx-font-smoothing: grayscale; */
+  /* color: black; */
 }
 a {
   text-decoration: none;
+  /* color: black; */
+
 }
 
 a:hover {
   text-decoration: none;
+}
+
+a:-webkit-any-link {
+  color: black;
+}
+
+p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }
