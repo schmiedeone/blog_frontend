@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Article from "./Article";
+import Category from "./Category";
 import Content from "./Content";
 import Nav from "./Nav";
 
@@ -14,6 +15,7 @@ function App() {
       <Switch>
         <Route path="/" component={Content} exact />
         <Route path="/article/:id" component={Article} exact />
+        <Route path="/category/:id" component={Category} exact/>
       </Switch>
     </div>
   );
