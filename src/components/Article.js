@@ -2,6 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 import Query from "./Query";
 
@@ -33,6 +34,12 @@ const Article = () => {
                 <p>
                   <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                 </p>
+                <Link
+                  to={`/category/${article.category.id}`}
+                  className="uk-link-reset"
+                >
+                  <h3>{article.category.name}</h3>
+                </Link>
               </div>
             </div>
           </div>

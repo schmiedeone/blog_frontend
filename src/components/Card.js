@@ -13,8 +13,8 @@ const Card = ({ article }) => {
           <img src={imageUrl} alt={article.image.url} height="100px" />
         </div>
         <div className="uk-card-body">
-          <p id="categories" className="uk-text-uppercase">
-            {article.categories.name}
+          <p id="category" className="uk-text-uppercase">
+            {article.category.name}
           </p>
           <p id="title" className="uk-text-large">
             {article.title}
