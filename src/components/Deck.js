@@ -1,4 +1,4 @@
-
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
 import Card from "./Card";
@@ -16,13 +16,13 @@ const useStyles = makeStyles((theme) => ({
   deckLeft: {
     width: "50%",
     float:"left",
-    padding: "1rem",
+    padding: "2.5%",
   },
 
   deckRight: {
     width: "40%",
     float:"right",
-    padding: "1rem",
+    padding: "2.5%",
   },
 }));
 

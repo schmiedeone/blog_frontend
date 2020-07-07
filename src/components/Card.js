@@ -10,14 +10,22 @@ const useStyles = makeStyles((theme) => ({
   card: {
     // width: "100%",
     // margin: "auto",
+    // display: "flex",
   },
 
+  cardImageBox: {
+    width: "100%",
+    margin: "auto",
+  },
+  
   cardImage: {
     width: "100%",
-    height: "70%",
-    // padding: "1rem",
+    paddingTop: "60%",
+    backgroundSize: "cover",
+    // height: "15rem",
+    backgroundRepeat: "no-repeat",
+    position: "Relative",
   },
-
   cardText: {
     // width: "40%",
     // float: "right",
@@ -35,8 +43,17 @@ const Card = ({ article }) => {
     <div aria-label="card" className={classes.card}>
       <Link to={`/article/${article.id}`}>
         <div>
-          <div>
+          {/* <div>
             <img src={imageUrl} alt={article.image.url} height="100px" />
+          </div> */}
+          <div className={classes.cardImageBox}>
+            <div
+              className={classes.cardImage}
+              style={{
+                backgroundImage: `url(${imageUrl})`,
+                backgroundPosition: `center`,
+              }}
+            />
           </div>
           <div>
             <p id="category">{article.category.name}</p>
