@@ -21,6 +21,7 @@ const Article = () => {
           <div>
             <div
               id="banner"
+              aria-label="article banner"
               className="uk-height-medium uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
               data-src={imageUrl}
               data-srcset={imageUrl}

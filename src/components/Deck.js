@@ -8,7 +8,7 @@ const Deck = ({ articles }) => {
   const rightArticles = articles.slice(leftArticlesCount, articles.length);
 
   return (
-    <div>
+    <div aria-label="deck">
       <div className="uk-child-width-1-2" data-uk-grid>
         <div>
           {leftArticles.map((article, i) => {

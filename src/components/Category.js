@@ -9,20 +9,22 @@ import CATEGORY_ARTICLES_QUERY from "../queries/category/articles";
 const Category = () => {
   let { id } = useParams();
   return (
-    <Query query={CATEGORY_ARTICLES_QUERY} id={id}>
-      {({ data: { category } }) => {
-        return (
-          <div>
-            <div className="uk-section">
-              <div className="uk-container uk-container-large">
-                <h1>{category.name}</h1>
-                <Deck articles={category.articles} />
+    <div aria-label="category">
+      <Query query={CATEGORY_ARTICLES_QUERY} id={id}>
+        {({ data: { category } }) => {
+          return (
+            <div>
+              <div className="uk-section">
+                <div className="uk-container uk-container-large">
+                  <h1>{category.name}</h1>
+                  <Deck articles={category.articles} />
+                </div>
               </div>
             </div>
-          </div>
-        );
-      }}
-    </Query>
+          );
+        }}
+      </Query>
+    </div>
   );
 };
 
