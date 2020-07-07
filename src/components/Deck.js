@@ -1,22 +1,48 @@
+
 import React from "react";
 
 import Card from "./Card";
 
+const useStyles = makeStyles((theme) => ({
+  deckContainer: {
+    width: "100%",
+  },
+
+  deck: {
+    // width: "100%",
+    // margin: "auto",
+  },
+
+  deckLeft: {
+    width: "50%",
+    float:"left",
+    padding: "1rem",
+  },
+
+  deckRight: {
+    width: "40%",
+    float:"right",
+    padding: "1rem",
+  },
+}));
+
 const Deck = ({ articles }) => {
-  const leftArticlesCount = Math.ceil(articles.length / 5);
+  const classes = useStyles();
+
+  const leftArticlesCount = Math.ceil(articles.length / 3);
   const leftArticles = articles.slice(0, leftArticlesCount);
   const rightArticles = articles.slice(leftArticlesCount, articles.length);
 
   return (
     <div aria-label="deck">
-      <div className="uk-child-width-1-2" data-uk-grid>
-        <div>
+      <div>
+        <div className={classes.deckLeft}>
           {leftArticles.map((article, i) => {
             return <Card article={article} key={`article__${article.id}`} />;
           })}
         </div>
         <div>
-          <div className="uk-child-width-1-2@m uk-grid-match" data-uk-grid>
+          <div className={classes.deckRight}>
             {rightArticles.map((article, i) => {
               return <Card article={article} key={`article__${article.id}`} />;
             })}
