@@ -21,8 +21,17 @@ const useStyles = makeStyles((theme) => ({
   },
 
   articleCategory: {
+    float: "right",
     textTransform: "uppercase",
+    paddingTop: "1rem",
+    margin: "0",
   },
+
+  articleText: {
+    width: "80%",
+    paddingTop: "2rem",
+    margin: "auto",
+  }
 }));
 
 const Article = () => {
@@ -50,7 +59,7 @@ const Article = () => {
               }}
             />
             <div>
-              <div>
+              <div className={classes.articleText}>
                 <ReactMarkdown source={article.content} />
                 <p>
                   <Moment format="MMM Do YYYY">{article.published_at}</Moment>

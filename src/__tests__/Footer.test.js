@@ -11,14 +11,10 @@ describe("Footer", () => {
     render(
       <Footer footerText={data.footerText}/>
       );
-
       expect(screen.getByText(data.footerText.about)).toBeInTheDocument();
       expect(screen.getByText(data.footerText.dataProtection)).toBeInTheDocument();
       expect(screen.getByText(data.footerText.imprint)).toBeInTheDocument();
       expect(screen.getByText(data.footerText.trademark)).toBeInTheDocument();
       expect(screen.getAllByRole("link"))
-    // expect(screen.getByText(data.footerText.dataProtection)).toBeInTheDocument();
-    // expect(screen.getByText(data.footerText.imprint)).toBeInTheDocument();
-    // expect(screen.getByText(data.footerText.trademark)).toBeInTheDocument();
   });
 });
