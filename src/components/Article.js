@@ -22,13 +22,17 @@ const Article = () => {
             <div
               id="banner"
               aria-label="article banner"
-              className="uk-height-medium uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
               data-src={imageUrl}
               data-srcset={imageUrl}
-              data-uk-img
             >
               <h1>{article.title}</h1>
+
+          <div>
+            <img src={imageUrl} alt={article.image[0].url} width="100%" />
+          </div>
             </div>
+            <img>
+            </img>
             <div className="uk-section">
               <div className="uk-container uk-container-small">
                 <ReactMarkdown source={article.content} />

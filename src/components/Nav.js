@@ -9,6 +9,9 @@ import CATEGORIES_QUERY from "../queries/category/categories";
 const useStyles = makeStyles((theme) => ({
   navBarContainer: {
     width: "100%",
+    [theme.breakpoints.down(400)]: {
+      width: "400px",
+    },
   },
 
   navBar: {
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 const Nav = ({ name }) => {
   const classes = useStyles();
   return (
-    <div className={classes.navBarConatiner}>
+    <div className={classes.navBarContainer}>
       <Query query={CATEGORIES_QUERY} id={null}>
         {({ data: { categories } }) => {
           return (

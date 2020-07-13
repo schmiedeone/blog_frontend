@@ -4,13 +4,10 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
-    // width: "100%",
   },
 
   card: {
-    // width: "100%",
-    // margin: "auto",
-    // display: "flex",
+    padding: "0.5rem",
   },
 
   cardImageBox: {
@@ -22,16 +19,12 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingTop: "60%",
     backgroundSize: "cover",
-    // height: "15rem",
     backgroundRepeat: "no-repeat",
     position: "Relative",
   },
   cardText: {
     padding: "1.5rem",
     textAlign: "center",
-    // width: "40%",
-    // float: "right",
-    // padding: "1rem",
   },
   cardTitle: {
     fontSize:"1.5rem",
@@ -54,9 +47,6 @@ const Card = ({ article }) => {
     <div aria-label="card" className={classes.card}>
       <Link to={`/article/${article.id}`}>
         <div>
-          {/* <div>
-            <img src={imageUrl} alt={article.image.url} height="100px" />
-          </div> */}
           <div className={classes.cardImageBox}>
             <div
               className={classes.cardImage}
@@ -68,6 +58,7 @@ const Card = ({ article }) => {
           </div>
           <div className={classes.cardText}>
             <p id="title" className={classes.cardTitle}>{article.title}</p>
+            
             <p id="category" className={classes.cardCategory}>{article.category.name}</p>
           </div>
         </div>
