@@ -4,14 +4,9 @@ import React from "react";
 
 import Card from "./Card";
 
-const useStyles = makeStyles((theme) => ({
-  deckContainer: {
-    width: "100%",
-    [theme.breakpoints.down(400)]: {
-      width: "400px",
-    },
-  },
+import universalStyles from "../utils/universalStyles";
 
+const useStyles = makeStyles((theme) => ({
   deck: {
     // width: "100%",
     // margin: "auto",
@@ -54,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Deck = ({ articles }) => {
   const classes = useStyles();
+  const universalClasses = universalStyles();
   const theme = useTheme();
   const mobileSize = useMediaQuery(theme.breakpoints.down("xs"));
   const tabletSize = useMediaQuery(theme.breakpoints.down("sm"));
@@ -127,7 +123,7 @@ const Deck = ({ articles }) => {
   };
 
   return (
-    <div aria-label="deck" className={classes.deckContainer}>
+    <div aria-label="deck" className={universalClasses.container}>
       <div>
         {mobileSize ? (
           <MobileView articles={articles} />

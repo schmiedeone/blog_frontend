@@ -7,6 +7,7 @@ import Article from "./Article";
 import Category from "./Category";
 import Content from "./Content";
 import Nav from "./Nav";
+import Footer from "./Footer";
 
 import client from "../utils/apolloClient";
 import data from "../utils/data";
@@ -24,6 +25,7 @@ function App() {
             <Route path="/article/:id" component={Article} exact />
             <Route path="/category/:id" component={Category} exact />
           </Switch>
+          <Footer footerText={data.footerText}/>
         </div>
       </ApolloProvider>
     </Router>

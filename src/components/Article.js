@@ -1,3 +1,4 @@
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
@@ -8,7 +9,25 @@ import Query from "./Query";
 
 import ARTICLE_QUERY from "../queries/article/article";
 
+import universalStyles from "../utils/universalStyles";
+
+const useStyles = makeStyles((theme) => ({
+  articleImage: {
+    width: "100%",
+    paddingTop: "60%",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    position: "Relative",
+  },
+
+  articleCategory: {
+    textTransform: "uppercase",
+  },
+}));
+
 const Article = () => {
+  const classes = useStyles();
+  const universalClasses = universalStyles();
   let { id } = useParams();
   return (
     <Query query={ARTICLE_QUERY} id={id}>
@@ -18,32 +37,28 @@ const Article = () => {
             ? article.image[0].url
             : process.env.REACT_APP_BACKEND_URL + article.image[0].url;
         return (
-          <div>
-            <div
-              id="banner"
-              aria-label="article banner"
-              data-src={imageUrl}
-              data-srcset={imageUrl}
-            >
+          <div className={universalClasses.container}>
+            <div id="banner" aria-label="article banner">
               <h1>{article.title}</h1>
-
-          <div>
-            <img src={imageUrl} alt={article.image[0].url} width="100%" />
-          </div>
             </div>
-            <img>
-            </img>
-            <div className="uk-section">
-              <div className="uk-container uk-container-small">
+
+            <div
+              className={universalClasses.backgroundImage}
+              style={{
+                backgroundImage: `url(${imageUrl})`,
+                backgroundPosition: `center`,
+              }}
+            />
+            <div>
+              <div>
                 <ReactMarkdown source={article.content} />
                 <p>
                   <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                 </p>
-                <Link
-                  to={`/category/${article.category.id}`}
-                  className="uk-link-reset"
-                >
-                  <h3>{article.category.name}</h3>
+                <Link to={`/category/${article.category.id}`}>
+                  <h3 className={classes.articleCategory}>
+                    {article.category.name}
+                  </h3>
                 </Link>
               </div>
             </div>

@@ -22,8 +22,9 @@ describe("Card", () => {
         <Card article={article} key={`article__${article.id}`} />
       </Router>
     );
+    
     expect(screen.getByRole("link")).toBeInTheDocument();
-    expect(screen.getByRole("img")).toBeInTheDocument();
+    
     expect(screen.getByText(article.category.name)).toBeInTheDocument();
     expect(screen.getByText(article.title)).toBeInTheDocument();
     expect(screen.getByLabelText("card")).toBeInTheDocument();

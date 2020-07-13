@@ -6,6 +6,7 @@ import Deck from "./Deck";
 import Query from "./Query";
 
 import CATEGORY_ARTICLES_QUERY from "../queries/category/articles";
+import universalStyles from "../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
   categoryTitle: {
@@ -15,9 +16,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Category = () => {
   const classes = useStyles();
+  const universalClasses = universalStyles();
   let { id } = useParams();
   return (
-    <div aria-label="category">
+    <div aria-label="category" className={universalClasses.container}>
       <Query query={CATEGORY_ARTICLES_QUERY} id={id}>
         {({ data: { category } }) => {
           return (

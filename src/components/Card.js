@@ -2,9 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { Link } from "react-router-dom";
 
+import universalStyles from "../utils/universalStyles";
+
 const useStyles = makeStyles((theme) => ({
-  cardContainer: {
-  },
+  cardContainer: {},
 
   card: {
     padding: "0.5rem",
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     margin: "auto",
   },
-  
+
   cardImage: {
     width: "100%",
     paddingTop: "60%",
@@ -27,18 +28,19 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   cardTitle: {
-    fontSize:"1.5rem",
+    fontSize: "1.5rem",
   },
 
   cardCategory: {
-    fontSize:"0.8rem",
+    fontSize: "0.8rem",
     padding: "0.5rem",
-    textTransform:"uppercase",
+    textTransform: "uppercase",
   },
 }));
 
 const Card = ({ article }) => {
   const classes = useStyles();
+  const universalClasses = universalStyles();
   const imageUrl =
     process.env.NODE_ENV !== "development"
       ? article.image[0].url
@@ -48,18 +50,23 @@ const Card = ({ article }) => {
       <Link to={`/article/${article.id}`}>
         <div>
           <div className={classes.cardImageBox}>
-            <div
-              className={classes.cardImage}
-              style={{
-                backgroundImage: `url(${imageUrl})`,
-                backgroundPosition: `center`,
-              }}
-            />
+              <div
+                className={universalClasses.backgroundImage}
+                style={{
+                  backgroundImage: `url(${imageUrl})`,
+                  backgroundPosition: `center`,
+                }}
+              />
+
           </div>
           <div className={classes.cardText}>
-            <p id="title" className={classes.cardTitle}>{article.title}</p>
-            
-            <p id="category" className={classes.cardCategory}>{article.category.name}</p>
+            <p id="title" className={classes.cardTitle}>
+              {article.title}
+            </p>
+
+            <p id="category" className={classes.cardCategory}>
+              {article.category.name}
+            </p>
           </div>
         </div>
       </Link>

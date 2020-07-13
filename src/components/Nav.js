@@ -5,15 +5,9 @@ import { Link } from "react-router-dom";
 import Query from "./Query";
 
 import CATEGORIES_QUERY from "../queries/category/categories";
+import universalStyles from "../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
-  navBarContainer: {
-    width: "100%",
-    [theme.breakpoints.down(400)]: {
-      width: "400px",
-    },
-  },
-
   navBar: {
     width: "80%",
     margin: "auto",
@@ -34,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
   
   navHomeButton: {
     float:"left",
+    fontWeight: "600",
+    fontSize: "1.5rem",
   },
   
   navCategoryButton: {
@@ -46,8 +42,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Nav = ({ name }) => {
   const classes = useStyles();
+  const universalClasses = universalStyles();
   return (
-    <div className={classes.navBarContainer}>
+    <div className={universalClasses.container}>
       <Query query={CATEGORIES_QUERY} id={null}>
         {({ data: { categories } }) => {
           return (
