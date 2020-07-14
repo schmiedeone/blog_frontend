@@ -8,43 +8,27 @@ import universalStyles from "../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
   deck: {
-    // width: "100%",
-    // margin: "auto",
-    // display: "block",
-  },
-
-  deckMobile: {
     width: "100%",
+    display: "block",
   },
 
-  deckTablet: {
-    width: "100%",
+  deckFat: {
+    width: "49.9%",
+    [theme.breakpoints.down("sm")]: {
+      width: "50%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
     float: "left",
   },
 
-  deckTabletLeft: {
-    width: "65%",
-    float: "left",
-  },
-
-  deckTabletRight: {
-    width: "35%",
-    float: "right",
-  },
-
-  deckDesktop: {
-    width: "100%",
-    float: "left",
-  },
-
-  deckDesktopLeft: {
-    width: "50%",
-    float: "left",
-  },
-
-  deckDesktopRight: {
+  deckThin: {
     width: "25%",
-    float: "right",
+    [theme.breakpoints.down("sm")]: {
+      width: "50%",
+    },
+    float: "left",
   },
 }));
 
@@ -55,84 +39,24 @@ const Deck = ({ articles }) => {
   const mobileSize = useMediaQuery(theme.breakpoints.down("xs"));
   const tabletSize = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const MobileView = ({ articles }) => {
-    return (
-      <div className={classes.deckMobile}>
-        {articles.map((article, i) => {
-          return <Card article={article} key={`article__${article.id}`} />;
-        })}
-      </div>
-    );
-  };
+  const TotalView = ({ articles }) =>
+    articles.map((article, index) => {
 
-  const TabletView = ({ articles }) => {
-    const leftArticlesCount = Math.ceil((2 * articles.length) / 5);
-    const leftArticles = articles.slice(0, leftArticlesCount);
-    const rightArticles = articles.slice(leftArticlesCount, articles.length);
+      const modulo = mobileSize ? 1 : tabletSize ? 2 : 5;
+      const widthClass =
+        index % modulo === 0 ? classes.deckFat : classes.deckThin;
 
-    return (
-      <div className={classes.deckTablet}>
-        <div className={classes.deckTabletLeft}>
-          {leftArticles.map((article, i) => {
-            return <Card article={article} key={`article__${article.id}`} />;
-          })}
+      return (
+        <div className={widthClass}>
+          <Card article={article} key={`article__${article.id}`} />
         </div>
-        <div>
-          <div className={classes.deckTabletRight}>
-            {rightArticles.map((article, i) => {
-              return <Card article={article} key={`article__${article.id}`} />;
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const DesktopView = ({ articles }) => {
-    const leftArticlesCount = Math.ceil(articles.length / 5);
-    const leftArticles = articles.slice(0, leftArticlesCount);
-    const rightArticles = articles.slice(leftArticlesCount, articles.length);
-
-    const rightArticlesCount = Math.ceil(rightArticles.length / 2);
-    const rightArticles2 = rightArticles.slice(0, rightArticlesCount);
-    const rightArticles1 = rightArticles.slice(
-      rightArticlesCount,
-      rightArticles.length
-    );
-
-    return (
-      <div className={classes.deckDesktop}>
-        <div className={classes.deckDesktopLeft}>
-          {leftArticles.map((article, i) => {
-            return <Card article={article} key={`article__${article.id}`} />;
-          })}
-        </div>
-        <div>
-          <div className={classes.deckDesktopRight}>
-            {rightArticles1.map((article, i) => {
-              return <Card article={article} key={`article__${article.id}`} />;
-            })}
-          </div>
-          <div className={classes.deckDesktopRight}>
-            {rightArticles2.map((article, i) => {
-              return <Card article={article} key={`article__${article.id}`} />;
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  };
+      );
+    });
 
   return (
     <div aria-label="deck" className={universalClasses.container}>
-      <div>
-        {mobileSize ? (
-          <MobileView articles={articles} />
-        ) : tabletSize ? (
-          <TabletView articles={articles} />
-        ) : (
-          <DesktopView articles={articles} />
-        )}
+      <div className={classes.deck}>
+        <TotalView articles={articles} />
       </div>
     </div>
   );
