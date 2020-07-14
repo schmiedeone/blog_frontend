@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   deck: {
     // width: "100%",
     // margin: "auto",
+    // display: "block",
   },
 
   deckMobile: {

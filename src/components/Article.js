@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     paddingTop: "2rem",
     margin: "auto",
-  }
+  },
 }));
 
 const Article = () => {
@@ -64,11 +64,15 @@ const Article = () => {
                 <p>
                   <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                 </p>
-                <Link to={`/category/${article.category.id}`}>
-                  <h3 className={classes.articleCategory}>
-                    {article.category.name}
-                  </h3>
-                </Link>
+                {!!article.category ? (
+                  <Link to={`/category/${article.category.id}`}>
+                    <h3 className={classes.articleCategory}>
+                      {article.category.name}
+                    </h3>
+                  </Link>
+                ) : (
+                  <div />
+                )}
               </div>
             </div>
           </div>

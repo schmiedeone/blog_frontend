@@ -5,17 +5,11 @@ import { Link } from "react-router-dom";
 import universalStyles from "../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
-  cardContainer: {},
-
   card: {
     padding: "0.5rem",
+    display: "block",
   },
-
-  cardImageBox: {
-    width: "100%",
-    margin: "auto",
-  },
-
+  
   cardImage: {
     width: "100%",
     paddingTop: "60%",
@@ -23,18 +17,22 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     position: "Relative",
   },
-  cardText: {
-    padding: "1.5rem",
-    textAlign: "center",
-  },
+
   cardTitle: {
+    padding: "0.7rem",
+    textAlign: "center",
     fontSize: "1.5rem",
+  },
+
+  cardCategoryContainer: {
+    display: "flex",
+    paddingBottom: "0.7rem",
   },
 
   cardCategory: {
     fontSize: "0.8rem",
-    padding: "0.5rem",
     textTransform: "uppercase",
+    margin: "auto",
   },
 }));
 
@@ -45,31 +43,34 @@ const Card = ({ article }) => {
     process.env.NODE_ENV !== "development"
       ? article.image[0].url
       : process.env.REACT_APP_BACKEND_URL + article.image[0].url;
+
+  const CategoryLink = () => (
+    <div className={classes.cardCategoryContainer}>
+      <p id="category" className={classes.cardCategory}>
+        <Link to={`/category/${article.category.id}`}>
+          {article.category.name}
+        </Link>
+      </p>
+    </div>
+  );
+
   return (
     <div aria-label="card" className={classes.card}>
       <Link to={`/article/${article.id}`}>
         <div>
-          <div className={classes.cardImageBox}>
-              <div
-                className={universalClasses.backgroundImage}
-                style={{
-                  backgroundImage: `url(${imageUrl})`,
-                  backgroundPosition: `center`,
-                }}
-              />
-
-          </div>
-          <div className={classes.cardText}>
+            <div
+              className={universalClasses.backgroundImage}
+              style={{
+                backgroundImage: `url(${imageUrl})`,
+                backgroundPosition: `center`,
+              }}
+            />
             <p id="title" className={classes.cardTitle}>
               {article.title}
             </p>
-
-            <p id="category" className={classes.cardCategory}>
-              {article.category.name}
-            </p>
-          </div>
         </div>
       </Link>
+      {!!article.category ? <CategoryLink /> : ""}
     </div>
   );
 };
