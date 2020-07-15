@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 import DropMenu from "./DropMenu";
 
-import CATEGORIES_QUERY from "../queries/category/categories";
-import AUTHORS_QUERY from "../queries/author/authors";
-import universalStyles from "../utils/universalStyles";
+import CATEGORIES_QUERY from "../../queries/category/categories";
+import AUTHORS_QUERY from "../../queries/author/authors";
+import universalStyles from "../../utils/universalStyles";
 
-import logo from "../img/schmiedeOneLogo.svg";
+import logo from "../../img/schmiedeOneLogo.svg";
 
 const useStyles = makeStyles((theme) => ({
   navBar: {

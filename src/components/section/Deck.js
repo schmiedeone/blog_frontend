@@ -4,7 +4,7 @@ import React from "react";
 
 import Card from "./Card";
 
-import universalStyles from "../utils/universalStyles";
+import universalStyles from "../../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
   deck: {

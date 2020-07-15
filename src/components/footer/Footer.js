@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
-import universalStyles from "../utils/universalStyles";
+import universalStyles from "../../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
   footer: {

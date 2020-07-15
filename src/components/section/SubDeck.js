@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from "react-router";
 
 import Deck from "./Deck";
-import Query from "./Query";
+import Query from "../Query";
 
-import universalStyles from "../utils/universalStyles";
+import universalStyles from "../../utils/universalStyles";
 
 const Author = ({ query, queryName }) => {
   const universalClasses = universalStyles();

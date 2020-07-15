@@ -4,10 +4,10 @@ import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 
-import Article from "./Article";
-import Footer from "./Footer";
-import NavBar from "./NavBar";
-import SubDeck from "./SubDeck";
+import Article from "./section/Article";
+import Footer from "./footer/Footer";
+import NavBar from "./header/NavBar";
+import SubDeck from "./section/SubDeck";
 
 import client from "../utils/apolloClient";
 import data from "../utils/data";

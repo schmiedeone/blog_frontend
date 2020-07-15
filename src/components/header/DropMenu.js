@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import Query from "./Query";
+import Query from "../Query";
 
 const useStyles = makeStyles(() => ({
   dropMenu: {

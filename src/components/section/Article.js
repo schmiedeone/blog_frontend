@@ -5,11 +5,11 @@ import Moment from "react-moment";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-import Query from "./Query";
+import Query from "../Query";
 
-import ARTICLE_QUERY from "../queries/article/article";
+import ARTICLE_QUERY from "../../queries/article/article";
 
-import universalStyles from "../utils/universalStyles";
+import universalStyles from "../../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
   articleImage: {
