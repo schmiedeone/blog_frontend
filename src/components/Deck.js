@@ -39,7 +39,7 @@ const Deck = ({ articles }) => {
   const mobileSize = useMediaQuery(theme.breakpoints.down("xs"));
   const tabletSize = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const TotalView = ({ articles }) =>
+  const DeckCutter = ({ articles }) =>
     articles.map((article, index) => {
 
       const modulo = mobileSize ? 1 : tabletSize ? 2 : 5;
@@ -56,7 +56,7 @@ const Deck = ({ articles }) => {
   return (
     <div aria-label="deck" className={universalClasses.container}>
       <div className={classes.deck}>
-        <TotalView articles={articles} />
+        <DeckCutter articles={articles} />
       </div>
     </div>
   );

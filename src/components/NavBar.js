@@ -12,34 +12,30 @@ import logo from "../img/schmiedeOneLogo.svg";
 
 const useStyles = makeStyles((theme) => ({
   navBar: {
-    width: "80%",
-    height: "30px",
+    height: "70px",
+    [theme.breakpoints.up("sm")]: {
+      height: "30px",
+    },
     margin: "30px 0 30px 0",
   },
 
   navMenuList: {
     listStyleType: "none",
+    padding: "16px",
   },
 
   navMenuItem: {
-    textDecoration: "none",
-    display: "block",
-    float: "left",
+    display: "flex",
+    [theme.breakpoints.up("sm")]: {
+      float: "right",
+    },
   },
 
   navHomeButton: {
-    float: "left",
-  },
-
-  navLogo: {
     height: "100%",
-  },
-
-  navCategoryButton: {
-    textTransform: "uppercase",
-    float: "right",
-    paddingLeft: "16px",
-    display: "flex",
+    [theme.breakpoints.up("sm")]: {
+      float: "left",
+    },
   },
 }));
 
@@ -51,19 +47,22 @@ const Nav = () => {
       <div className={classes.navBar}>
         <ul className={classes.navMenuList}>
           <li key={"homeButton"} className={classes.navHomeButton}>
-            <Link to="/" className={classes.navMenuItem}>
-              <img
-                src={logo}
-                alt={"Schmiede.ONE Logo"}
-                className={classes.navLogo}
-              />
+            <Link to="/">
+              <img src={logo} alt={"schmiede.ONE Logo"} />
             </Link>
           </li>
-          <li>
-            <DropMenu query={CATEGORIES_QUERY} queryName={"categories"} extension={"category"}/>
-            <DropMenu query={AUTHORS_QUERY} queryName={"authors"} extension={"author"}/>
+          <li className={classes.navMenuItem}>
+            <DropMenu
+              query={CATEGORIES_QUERY}
+              queryName={"categories"}
+              extension={"category"}
+            />
+            <DropMenu
+              query={AUTHORS_QUERY}
+              queryName={"authors"}
+              extension={"author"}
+            />
           </li>
-
         </ul>
       </div>
     </div>
