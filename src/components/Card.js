@@ -33,7 +33,33 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    position: "absolute",
+    height: "100%",
+    "&::after": {
+      content: '""',
+      position: "absolute",
+    },
+  },
+
+  cardCorner: {
+    "&::after": {
+      right: 0,
+      borderRight: "0px solid transparent",
+      
+      borderLeft: `180px solid transparent`,
+      borderTop: `80px solid #df1720CC`,
+      [theme.breakpoints.down("sm")]: {
+        borderLeft: `18vw solid transparent`,
+        borderTop: `8vw solid #df1720CC`,
+      },
+      [theme.breakpoints.down("xs")]: {
+        borderLeft: `32.4vw solid transparent`,
+        borderTop: `14.4vw solid #df1720CC`,
+      },
+      [theme.breakpoints.down(400)]: {
+        borderLeft: `130px solid transparent`,
+        borderTop: `57.5px solid #df1720CC`,
+      },
+    },
   },
 
   cardTitleContainer: {
@@ -46,36 +72,59 @@ const useStyles = makeStyles((theme) => ({
     padding: "0.5rem",
   },
 
-  backgroundImage: {
-    width: "100%",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    position: "relative",
-    height: "100%",
-  },
-
   cardTitle: {
     textAlign: "center",
-    fontSize: "1rem",
     margin: "auto",
     color: "white",
+    fontSize: "1.25rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "3vw",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "5vw",
+    },
+    [theme.breakpoints.down(400)]: {
+      fontSize: "20px",
+    },
   },
 
   cardCategoryContainer: {
-    display: "flex",
-    backgroundColor: "#df1720CC",
-    boxSizing: "border-box",
+    // display: "flex",
     position: "absolute",
     zIndex: "10",
-    right: "20px",
-    top: "20px",
+
+    right: "11px",//"15px",
+    top: "31px",//"35px",
+    [theme.breakpoints.down("sm")]: {
+      right: "1vw",//"11px",
+      top: "3.5vw",//"30px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      right: "3vw",//"11px",
+      top: "7vw",//"30px",
+    },
+    [theme.breakpoints.down(400)]: {
+      right: "12px",//"11px",
+      top: "28px",//"30px",
+    },
   },
 
   cardCategory: {
-    fontSize: "0.8rem",
     textTransform: "uppercase",
     margin: "auto",
     color: "white",
+    transform: "rotate(24deg)",
+
+    fontSize: "16px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.5vw",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "2.5vw",
+    },
+    [theme.breakpoints.down(400)]: {
+      fontSize: "6px",
+    },
   },
 }));
 
@@ -104,7 +153,7 @@ const Card = ({ article }) => {
 
       <Link className={classes.cardLink} to={`/article/${article.id}`}>
         <div
-          className={classes.backgroundImage}
+          className={`${classes.cardImage} ${classes.cardCorner}`}
           style={{
             backgroundImage: `url(${imageUrl})`,
             backgroundPosition: `center`,

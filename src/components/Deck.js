@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   deckFat: {
-    width: "49.9%",
+    width: "49.95%",
     [theme.breakpoints.down("sm")]: {
       width: "50%",
     },
