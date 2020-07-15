@@ -20,17 +20,25 @@ const useStyles = makeStyles((theme) => ({
     position: "Relative",
   },
 
+  articleContent: {
+    width: "80%",
+    paddingTop: "2rem",
+    margin: "auto",
+  },
+
+  articleText: {
+    paddingBottom: "1rem",
+  },
+
+  articleDetails: {
+    // display: "flex",
+  },
+
   articleCategory: {
     float: "right",
     textTransform: "uppercase",
     paddingTop: "1rem",
     margin: "0",
-  },
-
-  articleText: {
-    width: "80%",
-    paddingTop: "2rem",
-    margin: "auto",
   },
 }));
 
@@ -59,20 +67,27 @@ const Article = () => {
               }}
             />
             <div>
-              <div className={classes.articleText}>
-                <ReactMarkdown source={article.content} />
-                <p>
-                  <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-                </p>
-                {!!article.category ? (
-                  <Link to={`/category/${article.category.id}`}>
-                    <h3 className={classes.articleCategory}>
-                      {article.category.name}
-                    </h3>
-                  </Link>
-                ) : (
-                  <div />
-                )}
+              <div className={classes.articleContent}>
+                <ReactMarkdown
+                  source={article.content}
+                  className={classes.articleText}
+                />
+                <div className={classes.articleDetails}>
+                  <h2>{article.author.name}</h2>
+                  {!!article.category ? (
+                    <Link
+                      to={`/category/${article.category.id}`}
+                      className={classes.articleCategory}
+                    >
+                      <h3>{article.category.name}</h3>
+                    </Link>
+                  ) : (
+                    <div />
+                  )}
+                  <p>
+                    <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                  </p>
+                </div>
               </div>
             </div>
           </div>

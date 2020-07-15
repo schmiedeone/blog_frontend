@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
     "& a": {
       color:"white",
     },
-    display: "block",
     position: "relative",
     paddingTop: "60%",
   },
@@ -26,11 +25,9 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     position: "relative",
     height: "100%",
-    width: "100%",
   },
 
   cardImage: {
-    width: "100%",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     height: "100%",
@@ -45,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       borderRight: "0px solid transparent",
       
-      borderLeft: `180px solid transparent`,
-      borderTop: `80px solid #df1720CC`,
+      borderLeft: `170px solid transparent`,
+      borderTop: `72px solid #df1720CC`,
       [theme.breakpoints.down("sm")]: {
         borderLeft: `18vw solid transparent`,
         borderTop: `8vw solid #df1720CC`,
@@ -93,19 +90,19 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     zIndex: "10",
 
-    right: "11px",//"15px",
-    top: "31px",//"35px",
+    right: "10px",
+    top: "31px",
     [theme.breakpoints.down("sm")]: {
-      right: "1vw",//"11px",
-      top: "3.5vw",//"30px",
+      right: "1.5vw",
+      top: "4vw",
     },
     [theme.breakpoints.down("xs")]: {
-      right: "3vw",//"11px",
-      top: "7vw",//"30px",
+      right: "3vw",
+      top: "7vw",
     },
     [theme.breakpoints.down(400)]: {
-      right: "12px",//"11px",
-      top: "28px",//"30px",
+      right: "30px",
+      top: "28px",
     },
   },
 
@@ -115,15 +112,15 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     transform: "rotate(24deg)",
 
-    fontSize: "16px",
+    fontSize: "14px",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "1.5vw",
+      fontSize: "1.3vw",
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: "2.5vw",
     },
     [theme.breakpoints.down(400)]: {
-      fontSize: "6px",
+      fontSize: "8px",
     },
   },
 }));

@@ -13,6 +13,10 @@ const ARTICLE_QUERY = gql`
         id
         name
       }
+      author {
+        id
+        name
+      }
       published_at
     }
   }

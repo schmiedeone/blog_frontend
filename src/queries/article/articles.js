@@ -9,6 +9,10 @@ const ARTICLES_QUERY = gql`
         id
         name
       }
+      author {
+        id
+        name
+      }
       image {
         url
       }

@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-const CATEGORY_ARTICLES_QUERY = gql`
-  query Category($id: ID!) {
-    category(id: $id) {
+const AUTHOR_ARTICLES_QUERY = gql`
+  query Author($id: ID!) {
+    author(id: $id) {
       name
       articles {
         id
@@ -24,4 +24,4 @@ const CATEGORY_ARTICLES_QUERY = gql`
   }
 `;
 
-export default CATEGORY_ARTICLES_QUERY;
+export default AUTHOR_ARTICLES_QUERY;

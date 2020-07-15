@@ -5,27 +5,28 @@ import { useParams } from "react-router";
 import Deck from "./Deck";
 import Query from "./Query";
 
-import CATEGORY_ARTICLES_QUERY from "../queries/category/articles";
+import AUTHOR_ARTICLES_QUERY from "../queries/author/articles";
 import universalStyles from "../utils/universalStyles";
 
+
 const useStyles = makeStyles((theme) => ({
-  categoryTitle: {
+  authorTitle: {
     textTransform: "uppercase",
   },
 }));
 
-const Category = () => {
+const Author = () => {
   const classes = useStyles();
   const universalClasses = universalStyles();
   let { id } = useParams();
   return (
-    <div aria-label="category" className={universalClasses.container}>
-      <Query query={CATEGORY_ARTICLES_QUERY} id={id}>
-        {({ data: { category } }) => {
+    <div aria-label="author" className={universalClasses.container}>
+      <Query query={AUTHOR_ARTICLES_QUERY} id={id}>
+        {({ data: { author } }) => {
           return (
             <div>
-              <h1 className={classes.categoryTitle}>{category.name}</h1>
-              <Deck articles={category.articles} />
+              <h1 className={classes.authorTitle}>{author.name}</h1>
+              <Deck articles={author.articles} />
             </div>
           );
         }}
@@ -33,5 +34,4 @@ const Category = () => {
     </div>
   );
 };
-
-export default Category;
+export default Author;
