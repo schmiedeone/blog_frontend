@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/blog/static/css/main.36e90b76.chunk.css",
+    "main.js": "/blog/static/js/main.fad1f14b.chunk.js",
+    "main.js.map": "/blog/static/js/main.fad1f14b.chunk.js.map",
+    "runtime-main.js": "/blog/static/js/runtime-main.10c1e3dd.js",
+    "runtime-main.js.map": "/blog/static/js/runtime-main.10c1e3dd.js.map",
+    "static/js/2.c67c4c36.chunk.js": "/blog/static/js/2.c67c4c36.chunk.js",
+    "static/js/2.c67c4c36.chunk.js.map": "/blog/static/js/2.c67c4c36.chunk.js.map",
+    "index.html": "/blog/index.html",
+    "precache-manifest.a6428b1b1092a85f31a10686ee578156.js": "/blog/precache-manifest.a6428b1b1092a85f31a10686ee578156.js",
+    "service-worker.js": "/blog/service-worker.js",
+    "static/css/main.36e90b76.chunk.css.map": "/blog/static/css/main.36e90b76.chunk.css.map",
+    "static/js/2.c67c4c36.chunk.js.LICENSE.txt": "/blog/static/js/2.c67c4c36.chunk.js.LICENSE.txt",
+    "static/media/schmiedeOneLogo.svg": "/blog/static/media/schmiedeOneLogo.4e27858f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.10c1e3dd.js",
+    "static/js/2.c67c4c36.chunk.js",
+    "static/css/main.36e90b76.chunk.css",
+    "static/js/main.fad1f14b.chunk.js"
+  ]
+}

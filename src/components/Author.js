@@ -8,7 +8,6 @@ import Query from "./Query";
 import AUTHOR_ARTICLES_QUERY from "../queries/author/articles";
 import universalStyles from "../utils/universalStyles";
 
-
 const useStyles = makeStyles((theme) => ({
   authorTitle: {
     textTransform: "uppercase",
@@ -34,4 +33,5 @@ const Author = () => {
     </div>
   );
 };
+
 export default Author;
