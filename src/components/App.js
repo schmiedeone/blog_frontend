@@ -7,7 +7,7 @@ import Article from "./Article";
 import Author from "./Author";
 import Category from "./Category";
 import Content from "./Content";
-import Nav from "./Nav";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
 
 import client from "../utils/apolloClient";
@@ -20,7 +20,7 @@ function App() {
     <Router>
       <ApolloProvider client={client}>
         <div className="App">
-          <Nav name={data.blogName} />
+          <NavBar name={data.blogName} />
           <Switch>
             <Route path="/" component={Content} exact />
             <Route path="/article/:id" component={Article} exact />

@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Query from "./Query";
+import DropMenu from "./DropMenu";
 
 import CATEGORIES_QUERY from "../queries/category/categories";
 import AUTHORS_QUERY from "../queries/author/authors";
@@ -59,38 +59,11 @@ const Nav = () => {
               />
             </Link>
           </li>
-          <Query query={CATEGORIES_QUERY} id={null}>
-            {({ data: { categories } }) => {
-              return categories.map((category, i) => {
-                return (
-                  <li key={category.id} className={classes.navCategoryButton}>
-                    <Link
-                      to={`/category/${category.id}`}
-                      className={classes.navMenuItem}
-                    >
-                      {category.name}
-                    </Link>
-                  </li>
-                );
-              });
-            }}
-          </Query>
-          <Query query={AUTHORS_QUERY} id={null}>
-            {({ data: { authors } }) => {
-              return authors.map((author, i) => {
-                return (
-                  <li key={author.id} className={classes.navCategoryButton}>
-                    <Link
-                      to={`/author/${author.id}`}
-                      className={classes.navMenuItem}
-                    >
-                      {author.name}
-                    </Link>
-                  </li>
-                );
-              });
-            }}
-          </Query>
+          <li>
+            <DropMenu query={CATEGORIES_QUERY} queryName={"categories"} extension={"category"}/>
+            <DropMenu query={AUTHORS_QUERY} queryName={"authors"} extension={"author"}/>
+          </li>
+
         </ul>
       </div>
     </div>
