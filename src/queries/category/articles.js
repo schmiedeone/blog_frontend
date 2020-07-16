@@ -4,6 +4,7 @@ const CATEGORY_ARTICLES_QUERY = gql`
   query Category($id: ID!) {
     category(id: $id) {
       name
+      description
       articles {
         id
         title

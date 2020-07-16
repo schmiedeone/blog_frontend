@@ -7,7 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import Article from "./section/Article";
 import Footer from "./footer/Footer";
 import NavBar from "./header/NavBar";
-import SubDeck from "./section/SubDeck";
+import Section from "./section/Section";
 
 import client from "../utils/apolloClient";
 import data from "../utils/data";
@@ -27,7 +27,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: "#000000",
+      main: "#383842",
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
@@ -46,11 +46,6 @@ const theme = createMuiTheme({
     tonalOffset: 0.2,
   },
 });
-const proof = (theme) => {
-  console.log(theme.palette.primary.main);
-  console.log(theme.typography);
-};
-proof(theme);
 
 function App() {
   return (
@@ -67,14 +62,14 @@ function App() {
                     exact
                     path="/"
                     component={() => (
-                      <SubDeck query={ARTICLES_QUERY} queryName={"articles"} />
+                      <Section query={ARTICLES_QUERY} queryName={"articles"} />
                     )}
                   />
                   <Route
                     exact
                     path="/category/:id"
                     component={() => (
-                      <SubDeck
+                      <Section
                         query={CATEGORY_ARTICLES_QUERY}
                         queryName={"category"}
                       />
@@ -84,7 +79,7 @@ function App() {
                     exact
                     path="/author/:id"
                     component={() => (
-                      <SubDeck
+                      <Section
                         query={AUTHOR_ARTICLES_QUERY}
                         queryName={"author"}
                       />
@@ -94,7 +89,7 @@ function App() {
                     exact
                     path="/categories"
                     component={() => (
-                      <SubDeck
+                      <Section
                         query={CATEGORIES_QUERY}
                         queryName={"categories"}
                       />
@@ -104,7 +99,7 @@ function App() {
                     exact
                     path="/authors"
                     component={() => (
-                      <SubDeck query={AUTHORS_QUERY} queryName={"authors"} />
+                      <Section query={AUTHORS_QUERY} queryName={"authors"} />
                     )}
                   />
                   <Route path="/article/:id" component={Article} exact />

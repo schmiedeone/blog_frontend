@@ -5,7 +5,7 @@ import { Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 
-import SubDeck from "../../components/section/SubDeck";
+import Section from "../../components/section/Section";
 
 import client from "../../utils/apolloClient";
 
@@ -24,7 +24,7 @@ describe("Content", () => {
                 exact
                 path="/category/:id"
                 component={() => (
-                  <SubDeck
+                  <Section
                     query={CATEGORY_ARTICLES_QUERY}
                     queryName={"category"}
                   />
