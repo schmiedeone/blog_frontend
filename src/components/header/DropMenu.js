@@ -5,19 +5,25 @@ import { Link } from "react-router-dom";
 
 import Query from "../Query";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   dropMenu: {
     width: "100%",
     display: "block",
+    "& > div": {
+      backgroundColor: theme.palette.primary.main,
+    },
   },
   dropMenuTitle: {
     fontSize: "20px",
     fontWeight: "600",
+    color: theme.palette.primary.contrastText,
   },
   dropMenuItem: {
     transformText: "uppercase",
     fontSize: "14px",
     fontWeight: "400",
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 
@@ -37,8 +43,8 @@ const DropMenu = ({ query, queryName, extension }) => {
   return (
     <div>
       <Button
-        aria-controls="simple-menu"
-        aria-haspopup="true"
+        aria-controls={queryName}
+        aria-haspopup="false"
         onClick={handleClick}
         className={classes.dropMenuTitle}
       >
@@ -50,6 +56,7 @@ const DropMenu = ({ query, queryName, extension }) => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        className={classes.dropMenu}
       >
         <MenuItem key={queryName} onClick={handleClose}>
           <Link to={`/${queryName}`} className={classes.dropMenuItem}>

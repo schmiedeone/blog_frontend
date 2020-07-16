@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
     },
     position: "relative",
-    paddingTop: "60%",
+    paddingTop: "80%",
   },
 
   cardPositionContainer: {
@@ -37,41 +37,46 @@ const useStyles = makeStyles((theme) => ({
   },
 
   cardCorner: {
-    "&::after": {
-      right: 0,
-      borderRight: "0px solid transparent",
-
-      borderLeft: `170px solid transparent`,
-      borderTop: `72px solid #df1720CC`,
-      [theme.breakpoints.down("sm")]: {
-        borderLeft: `18vw solid transparent`,
-        borderTop: `8vw solid #df1720CC`,
-      },
-      [theme.breakpoints.down("xs")]: {
-        borderLeft: `32.4vw solid transparent`,
-        borderTop: `14.4vw solid #df1720CC`,
-      },
-      [theme.breakpoints.down(400)]: {
-        borderLeft: `130px solid transparent`,
-        borderTop: `57.5px solid #df1720CC`,
-      },
-    },
+    // "&::after": {
+    //   right: 0,
+    //   borderRight: "0px solid transparent",
+    //   borderLeft: `170px solid transparent`,
+    //   borderTop: `72px solid #df1720CC`,
+    //   [theme.breakpoints.down("sm")]: {
+    //     borderLeft: `18vw solid transparent`,
+    //     borderTop: `8vw solid #df1720CC`,
+    //   },
+    //   [theme.breakpoints.down("xs")]: {
+    //     borderLeft: `32.4vw solid transparent`,
+    //     borderTop: `14.4vw solid #df1720CC`,
+    //   },
+    //   [theme.breakpoints.down(400)]: {
+    //     borderLeft: `130px solid transparent`,
+    //     borderTop: `57.5px solid #df1720CC`,
+    //   },
+    // },
   },
 
-  cardTitleContainer: {
-    display: "flex",
-    backgroundColor: "#df1720CC",
-    boxSizing: "border-box",
+  cardDetailContainer: {
+    flexDirection: "column",
+    backgroundColor: theme.palette.primary.main,
     position: "absolute",
     bottom: "0",
     width: "100%",
-    padding: "0.5rem",
+  },
+
+  cardDetailElement: {
+    margin: "0.5rem",
+    textAlign: "left",
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.main,
   },
 
   cardTitle: {
-    textAlign: "center",
-    margin: "auto",
-    color: "white",
+    // margin: "0.5rem",
+    // textAlign: "left",
+    // color: "black",
+    // backgroundColor: "white",
     fontSize: "1.25rem",
     [theme.breakpoints.down("sm")]: {
       fontSize: "3vw",
@@ -84,36 +89,41 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  cardCategoryContainer: {
-    // display: "flex",
-    position: "absolute",
-    zIndex: "10",
+  cardAuthor: {
+    // margin: "0.5rem",
+    // textAlign: "left",
+    // color: "black",
+    // backgroundColor: "white",
 
-    right: "10px",
-    top: "31px",
+    marginTop: "0rem",
+    fontSize: "1rem",
     [theme.breakpoints.down("sm")]: {
-      right: "1.5vw",
-      top: "4vw",
+      fontSize: "2.5vw",
     },
     [theme.breakpoints.down("xs")]: {
-      right: "3vw",
-      top: "7vw",
+      fontSize: "4vw",
     },
     [theme.breakpoints.down(400)]: {
-      right: "30px",
-      top: "28px",
+      fontSize: "15px",
     },
+    textIndent: "0px",
+  },
+
+  cardCategoryContainer: {
+    position: "absolute",
+    zIndex: "10",
+    right: "0.5rem",
+    top: "0.5rem",
   },
 
   cardCategory: {
     textTransform: "uppercase",
-    margin: "auto",
+    padding: "0.25rem",
     color: "white",
-    transform: "rotate(24deg)",
-
+    backgroundColor: "#df1720",
     fontSize: "14px",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "1.3vw",
+      fontSize: "1.8vw",
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: "2.5vw",
@@ -141,13 +151,15 @@ const Card = ({ content }) => {
       </p>
     </div>
   );
-
   return (
     <div aria-label="card" className={classes.card}>
       <div className={classes.cardPositionContainer}>
         {!!content.category ? <CategoryLink /> : ""}
 
-        <Link className={classes.cardLink} to={`/${content.__typename}/${content.id}`}>
+        <Link
+          className={classes.cardLink}
+          to={`/${content.__typename}/${content.id}`}
+        >
           <div
             className={
               !!content.category
@@ -159,10 +171,18 @@ const Card = ({ content }) => {
               backgroundPosition: `center`,
             }}
           ></div>
-          <div className={classes.cardTitleContainer}>
-            <p id="title" className={classes.cardTitle}>
-              {!!content.title ? content.title : content.name}
-            </p>
+          <div className={classes.cardDetailContainer}>
+            <div className={classes.cardDetailElement}>
+              <p id="title" className={classes.cardTitle}>
+                {!!content.title ? content.title : content.name}
+              </p>
+            </div>
+
+            <div className={classes.cardDetailElement}>
+              <p id="author" className={classes.cardAuthor}>
+                {!!content.author ? content.author.name : ""}
+              </p>
+            </div>
           </div>
         </Link>
       </div>

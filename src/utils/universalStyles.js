@@ -10,6 +10,11 @@ const universalStyles = makeStyles((theme) => ({
       width: "1280px",
     },
     margin: "auto",
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    "& a": {
+      color: theme.palette.primary.contrastText,
+    },
   },
 
   backgroundImage: {
@@ -18,7 +23,7 @@ const universalStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     position: "Relative",
-  }
+  },
 }));
 
 export default universalStyles;

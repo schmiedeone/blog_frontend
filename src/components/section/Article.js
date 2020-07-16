@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   articleDetails: {
-    // display: "flex",
+    color: theme.palette.primary.contrastText,
   },
 
   articleCategory: {

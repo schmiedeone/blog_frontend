@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
   navMenuItem: {
     display: "flex",
+    color: theme.palette.primary.contrastText,
     [theme.breakpoints.up("sm")]: {
       float: "right",
     },
@@ -36,6 +38,13 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       float: "left",
     },
+  },
+
+  navAboutButton: {
+    fontSize: "20px",
+    fontWeight: "600",
+    transformText: "uppercase",
+    color: theme.palette.primary.contrastText,
   },
 }));
 
@@ -57,11 +66,20 @@ const Nav = () => {
               queryName={"categories"}
               extension={"category"}
             />
+          </li>
+          <li className={classes.navMenuItem}>
             <DropMenu
               query={AUTHORS_QUERY}
               queryName={"authors"}
               extension={"author"}
             />
+          </li>
+          <li className={classes.navMenuItem}>
+            <Button>
+              <Link to="/about" className={classes.navAboutButton}>
+                about
+              </Link>
+            </Button>
           </li>
         </ul>
       </div>
