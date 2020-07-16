@@ -73,7 +73,9 @@ const Article = () => {
                   className={classes.articleText}
                 />
                 <div className={classes.articleDetails}>
-                  <h2>{article.author.name}</h2>
+                  <Link to={`/author/${article.author.id}`}>
+                    <h2>{article.author.name}</h2>
+                  </Link>
                   {!!article.category ? (
                     <Link
                       to={`/category/${article.category.id}`}

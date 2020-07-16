@@ -5,6 +5,9 @@ const AUTHORS_QUERY = gql`
     authors{
       id
       name
+      image {
+        url
+      }
     }
   }
 `;

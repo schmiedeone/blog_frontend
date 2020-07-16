@@ -2,11 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 const useStyles = makeStyles((theme) => ({
   card: {
     "& a": {
-      color:"white",
+      color: "white",
     },
     position: "relative",
     paddingTop: "60%",
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     "&::after": {
       right: 0,
       borderRight: "0px solid transparent",
-      
+
       borderLeft: `170px solid transparent`,
       borderTop: `72px solid #df1720CC`,
       [theme.breakpoints.down("sm")]: {
@@ -125,18 +124,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Card = ({ article }) => {
+const Card = ({ content }) => {
   const classes = useStyles();
-  const imageUrl =
-    process.env.NODE_ENV !== "development"
-      ? article.image[0].url
-      : process.env.REACT_APP_BACKEND_URL + article.image[0].url;
+  const imageUrl = !!content.image
+    ? process.env.NODE_ENV !== "development"
+      ? content.image[0].url
+      : process.env.REACT_APP_BACKEND_URL + content.image[0].url
+    : "";
 
   const CategoryLink = () => (
     <div className={classes.cardCategoryContainer}>
       <p id="category" className={classes.cardCategory}>
-        <Link to={`/category/${article.category.id}`}>
-          {article.category.name}
+        <Link to={`/category/${content.category.id}`}>
+          {content.category.name}
         </Link>
       </p>
     </div>
@@ -145,25 +145,27 @@ const Card = ({ article }) => {
   return (
     <div aria-label="card" className={classes.card}>
       <div className={classes.cardPositionContainer}>
+        {!!content.category ? <CategoryLink /> : ""}
 
-      {!!article.category ? <CategoryLink /> : ""}
-
-      <Link className={classes.cardLink} to={`/article/${article.id}`}>
-        <div
-          className={`${classes.cardImage} ${classes.cardCorner}`}
-          style={{
-            backgroundImage: `url(${imageUrl})`,
-            backgroundPosition: `center`,
-          }}
-          >
-        </div>
+        <Link className={classes.cardLink} to={`/${content.__typename}/${content.id}`}>
+          <div
+            className={
+              !!content.category
+                ? `${classes.cardImage} ${classes.cardCorner}`
+                : classes.cardImage
+            }
+            style={{
+              backgroundImage: `url(${imageUrl})`,
+              backgroundPosition: `center`,
+            }}
+          ></div>
           <div className={classes.cardTitleContainer}>
             <p id="title" className={classes.cardTitle}>
-              {article.title}
+              {!!content.title ? content.title : content.name}
             </p>
           </div>
-      </Link>
-          </div>
+        </Link>
+      </div>
     </div>
   );
 };

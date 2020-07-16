@@ -1,9 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import Footer from "../components/Footer";
+import Footer from "../../components/footer/Footer";
 
-import data from "../utils/data";
+import data from "../../utils/data";
 
 const footerText = "Imprint";
 describe("Footer", () => {

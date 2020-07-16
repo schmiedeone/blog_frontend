@@ -3,7 +3,7 @@ import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 
-import Card from "../components/Card"
+import Card from "../../components/section/Card"
 
 const article = {
   category: { id: "3", name: "#creation", __typename: "Category" },
@@ -16,15 +16,13 @@ const article = {
 describe("Card", () => {
   test("Render a single Card", () => {
 
-
     render(
       <Router> 
-        <Card article={article} key={`article__${article.id}`} />
+        <Card content={article} key={`article__${article.id}`} />
       </Router>
     );
     
-    expect(screen.getByRole("link")).toBeInTheDocument();
-    
+    expect(screen.getAllByRole("link"));
     expect(screen.getByText(article.category.name)).toBeInTheDocument();
     expect(screen.getByText(article.title)).toBeInTheDocument();
     expect(screen.getByLabelText("card")).toBeInTheDocument();

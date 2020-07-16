@@ -5,8 +5,11 @@ import { Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 
-import Category from "../components/Category";
-import client from "../utils/apolloClient";
+import SubDeck from "../../components/section/SubDeck";
+
+import client from "../../utils/apolloClient";
+
+import CATEGORY_ARTICLES_QUERY from "../../queries/category/articles";
 
 describe("Content", () => {
   test("Content renders properly", async () => {
@@ -17,7 +20,16 @@ describe("Content", () => {
       <Router history={history}>
         <ApolloProvider client={client}>
           <Switch>
-            <Route path="/category/:id" component={Category} exact />
+              <Route
+                exact
+                path="/category/:id"
+                component={() => (
+                  <SubDeck
+                    query={CATEGORY_ARTICLES_QUERY}
+                    queryName={"category"}
+                  />
+                  )}
+                />
           </Switch>
         </ApolloProvider>
       </Router>

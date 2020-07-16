@@ -14,9 +14,9 @@ const Author = ({ query, queryName }) => {
       <Query query={query} id={!!id ? id : null}>
         {({ data }) => (
           <div>
-            <h1>{!!data[queryName].name ? data[queryName].name : ""}</h1>
+            <h1>{!!data[queryName].name ? data[queryName].name : queryName}</h1>
             <Deck
-              articles={
+              elements={
                 !!data[queryName].articles
                   ? data[queryName].articles
                   : data[queryName]

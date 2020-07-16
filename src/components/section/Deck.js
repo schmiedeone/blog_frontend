@@ -32,31 +32,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Deck = ({ articles }) => {
+const Deck = ({ elements }) => {
   const classes = useStyles();
   const universalClasses = universalStyles();
   const theme = useTheme();
   const mobileSize = useMediaQuery(theme.breakpoints.down("xs"));
   const tabletSize = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const DeckCutter = ({ articles }) =>
-    articles.map((article, index) => {
-
-      const modulo = mobileSize ? 1 : tabletSize ? 2 : 5;
-      const widthClass =
-        index % modulo === 0 ? classes.deckFat : classes.deckThin;
-
-      return (
-        <div className={widthClass}>
-          <Card article={article} key={`article__${article.id}`} />
-        </div>
-      );
-    });
+  const desktopModulo = !!elements[0].author ? 5 : 1;
+  const modulo = mobileSize ? 1 : tabletSize ? 2 : desktopModulo;
 
   return (
     <div aria-label="deck" className={universalClasses.container}>
       <div className={classes.deck}>
-        <DeckCutter articles={articles} />
+        {elements.map((content, index) => {
+          const widthClass =
+            index % modulo === 0 ? classes.deckFat : classes.deckThin;
+          return (
+            <div className={widthClass}>
+              <Card content={content} key={`content_${content.id}`} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

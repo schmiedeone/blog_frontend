@@ -5,8 +5,8 @@ import { Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 
-import Article from "../components/Article";
-import client from "../utils/apolloClient";
+import Article from "../../components/section/Article";
+import client from "../../utils/apolloClient";
 
 describe("Article", () => {
   test("Article renders properly", async () => {
