@@ -1,9 +1,8 @@
 import { Button, Menu, MenuItem } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-import Query from "../Query";
 
 const useStyles = makeStyles((theme) => ({
   dropMenu: {
@@ -27,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DropMenu = ({ query, queryName, extension }) => {
+const MobileMenu = () => {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -43,45 +42,39 @@ const DropMenu = ({ query, queryName, extension }) => {
   return (
     <div>
       <Button
-        aria-controls={queryName}
+        aria-controls={"Mobile Menu"}
         aria-haspopup="false"
         onClick={handleClick}
         className={classes.dropMenuTitle}
       >
-        {queryName}
+        <MenuIcon />
       </Button>
       <Menu
-        id={queryName}
+        id={"Mobile Menu"}
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
         className={classes.dropMenu}
       >
-        <MenuItem key={queryName} onClick={handleClose}>
-          <Link to={`/${queryName}`} className={classes.dropMenuItem}>
-            {`All ${queryName}`}
+        <MenuItem key={"about"} onClick={handleClose}>
+          <Link to={"/about"} className={classes.dropMenuItem}>
+            {"About"}
           </Link>
         </MenuItem>
-        <Query query={query} id={null}>
-          {({ data }) => {
-            return data[queryName].map((element, i) => {
-              return (
-                <MenuItem key={element.id} onClick={handleClose}>
-                  <Link
-                    to={`/${extension}/${element.id}`}
-                    className={classes.dropMenuItem}
-                  >
-                    {element.name}
-                  </Link>
-                </MenuItem>
-              );
-            });
-          }}
-        </Query>
+        <MenuItem key={"authors"} onClick={handleClose}>
+          <Link to={"/authors"} className={classes.dropMenuItem}>
+            {"Authors"}
+          </Link>
+        </MenuItem>
+        <MenuItem key={"categories"} onClick={handleClose}>
+          <Link to={"/categories"} className={classes.dropMenuItem}>
+            {"Categories"}
+          </Link>
+        </MenuItem>
       </Menu>
     </div>
   );
 };
 
-export default DropMenu;
+export default MobileMenu;

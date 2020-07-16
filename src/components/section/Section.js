@@ -5,7 +5,6 @@ import Deck from "./Deck";
 import Intro from "./Intro";
 import Query from "../Query";
 
-
 import universalStyles from "../../utils/universalStyles";
 
 const Section = ({ query, queryName }) => {
@@ -15,15 +14,14 @@ const Section = ({ query, queryName }) => {
     <div aria-label={queryName} className={universalClasses.container}>
       <Query query={query} id={!!id ? id : null}>
         {({ data }) => {
-          // console.log(data[queryName].name);
+          console.log(data);
           return (
             <div>
               {!!data[queryName].name ? (
-                <Intro title={data[queryName].name} description={data[queryName].description}/>
-                // <div>
-                //   <h1>{data[queryName].name}</h1>
-                //   {!!id ? <p>{data[queryName].description}</p> : ""}
-                // </div>
+                <Intro
+                  title={data[queryName].name}
+                  description={data[queryName].description}
+                />
               ) : (
                 ""
               )}

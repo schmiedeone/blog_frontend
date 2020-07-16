@@ -3,10 +3,10 @@ import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   intro: {
-    paddingTop: "50px",
-    width: "95%",
+    padding: "50px 0.5rem",
+    // width: "95%",
     margin: "auto",
-    paddingBottom: "50px",
+    // paddingBottom: "50px",
     // display: "block",
   },
 
