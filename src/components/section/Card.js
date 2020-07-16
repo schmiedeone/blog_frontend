@@ -36,26 +36,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  cardCorner: {
-    // "&::after": {
-    //   right: 0,
-    //   borderRight: "0px solid transparent",
-    //   borderLeft: `170px solid transparent`,
-    //   borderTop: `72px solid #df1720CC`,
-    //   [theme.breakpoints.down("sm")]: {
-    //     borderLeft: `18vw solid transparent`,
-    //     borderTop: `8vw solid #df1720CC`,
-    //   },
-    //   [theme.breakpoints.down("xs")]: {
-    //     borderLeft: `32.4vw solid transparent`,
-    //     borderTop: `14.4vw solid #df1720CC`,
-    //   },
-    //   [theme.breakpoints.down(400)]: {
-    //     borderLeft: `130px solid transparent`,
-    //     borderTop: `57.5px solid #df1720CC`,
-    //   },
-    // },
-  },
 
   cardDetailContainer: {
     flexDirection: "column",
@@ -73,10 +53,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   cardTitle: {
-    // margin: "0.5rem",
-    // textAlign: "left",
-    // color: "black",
-    // backgroundColor: "white",
     fontSize: "1.25rem",
     [theme.breakpoints.down("sm")]: {
       fontSize: "3vw",
@@ -90,11 +66,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   cardAuthor: {
-    // margin: "0.5rem",
-    // textAlign: "left",
-    // color: "black",
-    // backgroundColor: "white",
-
     marginTop: "0rem",
     fontSize: "1rem",
     [theme.breakpoints.down("sm")]: {
@@ -170,7 +141,7 @@ const Card = ({ content }) => {
               backgroundImage: `url(${imageUrl})`,
               backgroundPosition: `center`,
             }}
-          ></div>
+          />
           <div className={classes.cardDetailContainer}>
             <div className={classes.cardDetailElement}>
               <p id="title" className={classes.cardTitle}>

@@ -5,6 +5,9 @@ const AUTHOR_ARTICLES_QUERY = gql`
     author(id: $id) {
       name
       description
+      image {
+        url
+      }
       articles {
         id
         title

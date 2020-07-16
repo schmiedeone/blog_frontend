@@ -21,6 +21,7 @@ const Section = ({ query, queryName }) => {
                 <Intro
                   title={data[queryName].name}
                   description={data[queryName].description}
+                  image={data[queryName].image}
                 />
               ) : (
                 ""
