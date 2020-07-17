@@ -168,7 +168,18 @@
 <a name='L110'></a><a href='#L110'>110</a>
 <a name='L111'></a><a href='#L111'>111</a>
 <a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -227,6 +238,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -235,6 +251,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -281,7 +303,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button } from "@material-ui/core";
-import { makeStyles, useTheme  } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -293,7 +315,7 @@ import CATEGORIES_QUERY from "../../queries/category/categories";
 import AUTHORS_QUERY from "../../queries/author/authors";
 import universalStyles from "../../utils/universalStyles";
 &nbsp;
-import logo from "../../img/schmiedeOneLogo.svg";
+import logo from "../../img/schmiede_logo_white.png";
 &nbsp;
 const useStyles = makeStyles((theme) =&gt; ({
   navContainer: {
@@ -324,18 +346,23 @@ const useStyles = makeStyles((theme) =&gt; ({
     },
   },
 &nbsp;
-  navHomeButton: {
-    height: "100%",
+  navImageItem: {
+    position: "relative",
+    alignItems: "left",
+  },
+&nbsp;
+  navImage: {
+    width: "400px",
     float: "left",
-    // [theme.breakpoints.up("sm")]: {
-    // },
+    position: "absolute",
+    left: "-37px",
   },
 &nbsp;
   navAboutButton: {
-    fontSize: "20px",
-    fontWeight: "600",
-    transformText: "uppercase",
+    fontSize: "25px",
+    fontWeight: "400",
     color: theme.palette.primary.contrastText,
+    textTransform: "lowercase",
   },
 }));
 &nbsp;
@@ -351,10 +378,16 @@ const NavBar = () =&gt; {
       &lt;div className={classes.navContainer}&gt;
         &lt;div className={classes.navBar}&gt;
           &lt;ul className={classes.navMenuList}&gt;
-            &lt;li key={"homeButton"} className={classes.navHomeButton}&gt;
-              &lt;Link to="/"&gt;
-                &lt;img src={logo} alt={"schmiede.ONE Logo"} /&gt;
-              &lt;/Link&gt;
+            &lt;li key={"homeButton"} className={classes.navImageItem}&gt;
+              &lt;div className={classes.navImage}&gt;
+                &lt;Link to="/"&gt;
+                  &lt;img
+                    src={logo}
+                    alt={"schmiede.ONE Logo"}
+                    className={classes.navImage}
+                  /&gt;
+                &lt;/Link&gt;
+              &lt;/div&gt;
             &lt;/li&gt;
             {smallScreen ? (
 <span class="branch-0 cbranch-no" title="branch not covered" >              &lt;li className={classes.navMenuItem}&gt;</span>
@@ -399,7 +432,7 @@ export default NavBar;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jul 17 2020 11:07:58 GMT+0200 (Central European Summer Time)
+                at Fri Jul 17 2020 16:15:59 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

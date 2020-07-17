@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
 
   introTitle: {
     fontSize: "5rem",
+    [theme.breakpoints.down(imageBreakPoint)]: {
+      fontSize: "3rem",
+    },
   },
 
   introDescription: {

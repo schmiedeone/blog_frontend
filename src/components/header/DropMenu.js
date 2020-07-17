@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   dropMenuTitle: {
-    fontSize: "20px",
-    fontWeight: "600",
+    fontSize: "25px",
+    fontWeight: "400",
     color: theme.palette.primary.contrastText,
+    textTransform: "lowercase",
   },
   dropMenuItem: {
-    transformText: "uppercase",
     fontSize: "20px",
     fontWeight: "400",
     color: theme.palette.primary.contrastText,
@@ -61,7 +61,7 @@ const DropMenu = ({ query, queryName, extension }) => {
       >
         <MenuItem key={queryName} onClick={handleClose}>
           <Link to={`/${queryName}`} className={classes.dropMenuItem}>
-            {`All ${queryName}`}
+            {`all ${queryName}`}
           </Link>
         </MenuItem>
         <Query query={query} id={null}>

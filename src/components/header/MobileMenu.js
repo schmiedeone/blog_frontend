@@ -5,20 +5,22 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  dropMenu: {
+  mobileMenu: {
     width: "100%",
     display: "block",
     "& > div": {
       backgroundColor: theme.palette.primary.main,
     },
   },
-  dropMenuTitle: {
+
+  mobileMenuTitle: {
     fontSize: "20px",
-    fontWeight: "600",
+    fontWeight: "400",
     color: theme.palette.primary.contrastText,
+    textTransform: "uppercase",
   },
-  dropMenuItem: {
-    transformText: "uppercase",
+
+  mobileMenuItem: {
     fontSize: "20px",
     fontWeight: "400",
     color: theme.palette.primary.contrastText,
@@ -46,7 +48,7 @@ const MobileMenu = () => {
         aria-haspopup="false"
         aria-label="mobile menu button"
         onClick={handleClick}
-        className={classes.dropMenuTitle}
+        className={classes.mobileMenuTitle}
       >
         <MenuIcon />
       </Button>
@@ -56,20 +58,20 @@ const MobileMenu = () => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        className={classes.dropMenu}
+        className={classes.mobileMenu}
       >
         <MenuItem key={"about"} onClick={handleClose}>
-          <Link to={"/about"} className={classes.dropMenuItem}>
+          <Link to={"/about"} className={classes.mobileMenuItem}>
             {"About"}
           </Link>
         </MenuItem>
         <MenuItem key={"authors"} onClick={handleClose}>
-          <Link to={"/authors"} className={classes.dropMenuItem}>
+          <Link to={"/authors"} className={classes.mobileMenuItem}>
             {"Authors"}
           </Link>
         </MenuItem>
         <MenuItem key={"categories"} onClick={handleClose}>
-          <Link to={"/categories"} className={classes.dropMenuItem}>
+          <Link to={"/categories"} className={classes.mobileMenuItem}>
             {"Categories"}
           </Link>
         </MenuItem>
