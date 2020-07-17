@@ -55,10 +55,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   navAboutButton: {
-    fontSize: "20px",
-    fontWeight: "600",
-    transformText: "uppercase",
+    fontSize: "25px",
+    fontWeight: "400",
     color: theme.palette.primary.contrastText,
+    textTransform: "lowercase",
   },
 }));
 

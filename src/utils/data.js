@@ -1,10 +1,10 @@
 const data = {
-  blogName: "SchmieBlog.ONE",
+  blogName: "schmiede.ONE blog",
   footerText: {
-    imprint: "Imprint",
-    about: "About Schmiede.ONE",
-    trademark: "© Schmiede.ONE GmbH & Co. KG 2111",
-    dataProtection: "Data Protection",
+    imprint: "imprint",
+    about: "about schmiede.ONE",
+    trademark: "© schmiede.ONE GmbH & Co. KG 2020",
+    dataProtection: "privacy policy",
   },
 };
 

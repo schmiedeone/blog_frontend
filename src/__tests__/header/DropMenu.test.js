@@ -35,13 +35,13 @@ describe("DropMenu", () => {
     );
 
     expect(await screen.findAllByRole("link"));
-    expect(await screen.findByText("All categories")).toBeInTheDocument();
+    expect(await screen.findByText("all categories")).toBeInTheDocument();
     expect(
       await screen.findByLabelText("drop menu item 0")
     ).toBeInTheDocument();
 
     fireEvent(
-      screen.getByText("All categories"),
+      screen.getByText("all categories"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
@@ -75,13 +75,13 @@ describe("DropMenu", () => {
     );
 
     expect(await screen.findAllByRole("link"));
-    expect(await screen.findByText("All authors")).toBeInTheDocument();
+    expect(await screen.findByText("all authors")).toBeInTheDocument();
     expect(
       await screen.findByLabelText("drop menu item 0")
     ).toBeInTheDocument();
 
     fireEvent(
-      screen.getByText("All authors"),
+      screen.getByText("all authors"),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
