@@ -14,7 +14,6 @@ const Section = ({ query, queryName }) => {
     <div aria-label={queryName} className={universalClasses.container}>
       <Query query={query} id={!!id ? id : null}>
         {({ data }) => {
-          console.log(data);
           return (
             <div>
               {!!data[queryName].name ? (

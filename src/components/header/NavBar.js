@@ -63,7 +63,7 @@ const NavBar = () => {
   const theme = useTheme();
 
   const smallScreen = useMediaQuery(theme.breakpoints.down(800));
-  console.log(smallScreen)
+  // console.log(smallScreen)
   return (
     <div className={universalClasses.container}>
       <div className={classes.navContainer}>

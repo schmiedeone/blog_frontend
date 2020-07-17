@@ -1,57 +1,53 @@
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
+const imageBreakPoint = 800;
+
 const useStyles = makeStyles((theme) => ({
-  introContainer: {
+  intro: {
     padding: "50px 0.5rem",
-    // display: "flex",
-    // margin: "auto",
+    display: "flex",
     width: "100%",
-    // position: "relative",
   },
 
-  intro: {
-    // width: "50%",
-    // paddingBottom: "50px",
-    // display: "block",
+  introText: {
+    width: "70%",
+    [theme.breakpoints.down(imageBreakPoint)]: {
+      width: "100%",
+    },
   },
 
   introTitle: {},
 
-  introText: {
+  introDescription: {
     paddingRight: "0.5rem",
   },
 
-  introImageContainer: {
-    position: "absolute",
-    // padding: "0.5rem",
-    width: "100%",
-    height: "100%",
-    top: "0",
-    // width: "80rem",
-    // height: "22rem",
-    [theme.breakpoints.down("xs")]: {
+  introImageSizeContainer: {
+    width: "30%",
+    [theme.breakpoints.down(imageBreakPoint)]: {
       display: "none",
     },
   },
+
+  introImagePositionContainer: {
+    position: "relative",
+    paddingTop: "100%",
+  },
+
   introImage: {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
     width: "100%",
     height: "100%",
-    float: "left",
-    // left:"0px",
-  },
-
-  introImagePositionContainer: {
-    width:"20rem",
-    position: "relative",
-    paddingTop: "80%",
+    position: "absolute",
+    top: "0",
   },
 }));
 
 const Intro = ({ title, description, image }) => {
-  console.log(image[0].url);
+  // console.log(image[0].url);
   const classes = useStyles();
   const imageUrl =
     process.env.NODE_ENV !== "development"
@@ -59,25 +55,19 @@ const Intro = ({ title, description, image }) => {
       : process.env.REACT_APP_BACKEND_URL + image[0].url;
 
   return (
-    <div className={classes.introContainer}>
-      <div className={classes.intro}>
+    <div aria-label="intro" className={classes.intro}>
+      <div className={classes.introText}>
         <h1 className={classes.introTitle}>{title}</h1>
-        <p className={classes.introText}>{description}</p>
+        <p className={classes.introDescription}>{description}</p>
       </div>
-      <div style={{width:"20rem"}}>
-      <div className={classes.introImagePositionContainer}>
-        {/* <div className={classes.cardPositionContainer}> */}
-          {/* <div className={classes.cardLink}> */}
-            <div className={classes.introImageContainer}>
-              <div
-                className={classes.introImage}
-                style={{
-                  backgroundImage: `url(${imageUrl})`,
-                  backgroundPosition: `center`,
-                }}
-              />
-            </div>
-          {/* </div> */}
+      <div className={classes.introImageSizeContainer}>
+        <div className={classes.introImagePositionContainer}>
+          <div
+            className={classes.introImage}
+            style={{
+              backgroundImage: `url(${imageUrl})`,
+            }}
+          />
         </div>
       </div>
     </div>

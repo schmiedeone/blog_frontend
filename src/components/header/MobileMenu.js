@@ -40,10 +40,11 @@ const MobileMenu = () => {
   };
 
   return (
-    <div>
+    <div aria-label="mobile menu">
       <Button
         aria-controls={"Mobile Menu"}
         aria-haspopup="false"
+        aria-label="mobile menu button"
         onClick={handleClick}
         className={classes.dropMenuTitle}
       >

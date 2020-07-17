@@ -15,10 +15,6 @@ const CATEGORY_ARTICLES_QUERY = gql`
         image {
           url
         }
-        category {
-          id
-          name
-        }
         author {
           id
           name
