@@ -9,45 +9,27 @@ describe("MobileMenu", () => {
   test("MobileMenu renders", async () => {
     render(
       <Router>
-          <MobileMenu name={data.blogName} />
-      </Router>
-    );
-    expect(await screen.findByText("About")).toBeInTheDocument();
-    expect(await screen.findByText("Categories")).toBeInTheDocument();
-    expect(await screen.findByText("Authors")).toBeInTheDocument();
-    expect(screen.getByLabelText("mobile menu")).toBeInTheDocument();
-  });
-});
-
-
-describe("MobileMenu drawer", () => {
-  test("MobileMenu operates on click", async () => {
-    const onClick = jest.fn();
-
-    render(
-      <Router>
-          <MobileMenu name={data.blogName} />
+        <MobileMenu name={data.blogName} />
       </Router>
     );
 
     fireEvent(
-      screen.getByLabelText('mobile menu button'),
-      new MouseEvent('click', {
+      screen.getByLabelText("mobile menu button"),
+      new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
-    )
+    );
 
     fireEvent(
       screen.getByText("Categories"),
-      new MouseEvent('click', {
+      new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
-    )
-    
-    // expect(onClick).toHaveBeenCalledTimes(1);
+    );
 
+    // expect(await screen.findAllByRole("link"));
     expect(await screen.findByText("About")).toBeInTheDocument();
     expect(await screen.findByText("Categories")).toBeInTheDocument();
     expect(await screen.findByText("Authors")).toBeInTheDocument();

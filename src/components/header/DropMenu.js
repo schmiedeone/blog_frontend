@@ -41,10 +41,11 @@ const DropMenu = ({ query, queryName, extension }) => {
   };
 
   return (
-    <div>
+    <div aria-label="drop menu">
       <Button
         aria-controls={queryName}
         aria-haspopup="false"
+        aria-label="drop menu button"
         onClick={handleClick}
         className={classes.dropMenuTitle}
       >
@@ -71,6 +72,7 @@ const DropMenu = ({ query, queryName, extension }) => {
                   <Link
                     to={`/${extension}/${element.id}`}
                     className={classes.dropMenuItem}
+                    aria-label={`drop menu item ${i}`}
                   >
                     {element.name}
                   </Link>
