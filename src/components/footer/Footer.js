@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(800)]: {
       flexDirection: "column",
     },
+    boxShadow: `50vw 0 0 100vw ${theme.palette.primary.main}`,
   },
 
   footerLinks: {
@@ -23,12 +24,11 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
     },
   },
-  
+
   footerElement: {
     margin: "auto",
     padding: "0.75rem",
   },
-
 }));
 
 const Footer = ({ footerText }) => {
@@ -60,7 +60,7 @@ const Footer = ({ footerText }) => {
               {dataProtection}
             </a>
           </div>
-            <div className={classes.footerElement}>{trademark}</div>
+          <div className={classes.footerElement}>{trademark}</div>
         </div>
       </div>
     </div>

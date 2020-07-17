@@ -13,8 +13,8 @@ import universalStyles from "../../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
   articleContainer: {
-    width: "90%",
-    margin:"auto",
+    padding: "0.5rem",
+    margin: "auto",
   },
   articleImage: {
     width: "100%",
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     position: "Relative",
-    margin:"auto",
+    margin: "auto",
   },
 
   articleContent: {
@@ -64,15 +64,15 @@ const Article = () => {
               <div id="banner" aria-label="article banner">
                 <h1>{article.title}</h1>
                 {!!article.category ? (
-                      <Link
-                        to={`/category/${article.category.id}`}
-                        className={classes.articleCategory}
-                      >
-                        <h3>{article.category.name}</h3>
-                      </Link>
-                    ) : (
-                      ""
-                    )}
+                  <Link
+                    to={`/category/${article.category.id}`}
+                    className={classes.articleCategory}
+                  >
+                    <h3>{article.category.name}</h3>
+                  </Link>
+                ) : (
+                  ""
+                )}
               </div>
 
               <div
@@ -92,7 +92,7 @@ const Article = () => {
                     <Link to={`/author/${article.author.id}`}>
                       <h2>{article.author.name}</h2>
                     </Link>
-                    
+
                     <p>
                       <Moment format="MMM Do YYYY">
                         {article.published_at}

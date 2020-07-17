@@ -6,17 +6,20 @@ import { Route, Switch } from "react-router-dom";
 
 import Article from "./section/Article";
 import Footer from "./footer/Footer";
+import Intro from "./section/Intro";
 import NavBar from "./header/NavBar";
 import Section from "./section/Section";
+import Query from "./Query";
 
 import client from "../utils/apolloClient";
 import data from "../utils/data";
 
 import ARTICLES_QUERY from "../queries/article/articles";
-import CATEGORY_ARTICLES_QUERY from "../queries/category/articles";
-import CATEGORIES_QUERY from "../queries/category/categories";
 import AUTHOR_ARTICLES_QUERY from "../queries/author/articles";
 import AUTHORS_QUERY from "../queries/author/authors";
+import CATEGORY_ARTICLES_QUERY from "../queries/category/articles";
+import CATEGORIES_QUERY from "../queries/category/categories";
+import MESSAGES_QUERY from "../queries/message/messages";
 
 import "./App.css";
 
@@ -27,15 +30,16 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: "#383842",
+      main: "#141414", //"#383842",
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
+      contrastText: "#EBEBEB",
     },
     secondary: {
       light: "#0066ff",
       main: "#0044ff",
       // dark: will be calculated from palette.secondary.main,
-      contrastText: "#ffcc00",
+      contrastText: "#EBEBEB",
     },
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
@@ -46,6 +50,11 @@ const theme = createMuiTheme({
     tonalOffset: 0.2,
   },
 });
+
+const messageKey = {
+  welcome: 1,
+  about: 2,
+};
 
 function App() {
   return (
@@ -62,7 +71,23 @@ function App() {
                     exact
                     path="/"
                     component={() => (
-                      <Section query={ARTICLES_QUERY} queryName={"articles"} />
+                      <div>
+                        <Query query={MESSAGES_QUERY} id={messageKey.welcome}>
+                          {({ data }) => {
+                            return (
+                              <Intro
+                                title={data.message.name}
+                                description={data.message.description}
+                                image={data.message.image}
+                              />
+                            );
+                          }}
+                        </Query>
+                        <Section
+                          query={ARTICLES_QUERY}
+                          queryName={"articles"}
+                        />
+                      </div>
                     )}
                   />
                   <Route
@@ -100,6 +125,24 @@ function App() {
                     path="/authors"
                     component={() => (
                       <Section query={AUTHORS_QUERY} queryName={"authors"} />
+                    )}
+                  />
+
+                  <Route
+                    exact
+                    path="/about"
+                    component={() => (
+                      <Query query={MESSAGES_QUERY} id={messageKey.about}>
+                        {({ data }) => {
+                          return (
+                            <Intro
+                              title={data.message.name}
+                              description={data.message.description}
+                              image={data.message.image}
+                            />
+                          );
+                        }}
+                      </Query>
                     )}
                   />
                   <Route path="/article/:id" component={Article} exact />

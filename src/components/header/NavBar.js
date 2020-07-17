@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import { makeStyles, useTheme  } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ import CATEGORIES_QUERY from "../../queries/category/categories";
 import AUTHORS_QUERY from "../../queries/author/authors";
 import universalStyles from "../../utils/universalStyles";
 
-import logo from "../../img/schmiedeOneLogo.svg";
+import logo from "../../img/schmiede_logo_white.png";
 
 const useStyles = makeStyles((theme) => ({
   navContainer: {
@@ -42,11 +42,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  navHomeButton: {
-    height: "100%",
+  navImageItem: {
+    position: "relative",
+    alignItems: "left",
+  },
+
+  navImage: {
+    width: "400px",
     float: "left",
-    // [theme.breakpoints.up("sm")]: {
-    // },
+    position: "absolute",
+    left: "-37px",
   },
 
   navAboutButton: {
@@ -69,10 +74,16 @@ const NavBar = () => {
       <div className={classes.navContainer}>
         <div className={classes.navBar}>
           <ul className={classes.navMenuList}>
-            <li key={"homeButton"} className={classes.navHomeButton}>
-              <Link to="/">
-                <img src={logo} alt={"schmiede.ONE Logo"} />
-              </Link>
+            <li key={"homeButton"} className={classes.navImageItem}>
+              <div className={classes.navImage}>
+                <Link to="/">
+                  <img
+                    src={logo}
+                    alt={"schmiede.ONE Logo"}
+                    className={classes.navImage}
+                  />
+                </Link>
+              </div>
             </li>
             {smallScreen ? (
               <li className={classes.navMenuItem}>

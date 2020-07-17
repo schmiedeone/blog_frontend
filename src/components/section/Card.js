@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-
   cardDetailContainer: {
     flexDirection: "column",
     backgroundColor: theme.palette.primary.main,
@@ -83,8 +82,8 @@ const useStyles = makeStyles((theme) => ({
   cardCategoryContainer: {
     position: "absolute",
     zIndex: "10",
-    right: "0.5rem",
-    top: "0.5rem",
+    right: "1rem",
+    top: "1rem",
   },
 
   cardCategory: {
