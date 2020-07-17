@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const universalStyles = makeStyles((theme) => ({
   container: {
     width: "100%",
-    [theme.breakpoints.down(400)]: {
+    [theme.breakpoints.down(300)]: {
       width: "400px",
     },
     [theme.breakpoints.up(1280)]: {

@@ -15,7 +15,6 @@ import logo from "../../img/schmiede_logo_white.png";
 
 const useStyles = makeStyles((theme) => ({
   navContainer: {
-    // width: "90%",
     margin: "auto",
     padding: "0.5rem",
   },
@@ -26,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
       height: "30px",
     },
     paddingTop: "30px",
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: "0px",
+    },
     paddingBottom: "90px",
   },
 
@@ -68,7 +70,6 @@ const NavBar = () => {
   const theme = useTheme();
 
   const smallScreen = useMediaQuery(theme.breakpoints.down(800));
-  // console.log(smallScreen)
   return (
     <div className={universalClasses.container}>
       <div className={classes.navContainer}>
