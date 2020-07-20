@@ -52,7 +52,7 @@ const Deck = ({ elements }) => {
           const widthClass =
             index % modulo === 0 ? classes.deckFat : classes.deckThin;
           return (
-            <div className={widthClass} key={`content_${content.id}`}>
+            <div className={widthClass} key={`content_${content.id}`} id={`card_${index}`}>
               <Card content={content} />
             </div>
           );

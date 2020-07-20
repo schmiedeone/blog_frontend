@@ -82,6 +82,7 @@ const NavBar = () => {
                     src={logo}
                     alt={"schmiede.ONE Logo"}
                     className={classes.navImage}
+                    id = {"logo_image"}
                   />
                 </Link>
               </div>
@@ -108,7 +109,7 @@ const NavBar = () => {
                 </li>
                 <li className={classes.navMenuItem}>
                   <Button>
-                    <Link to="/about" className={classes.navAboutButton}>
+                    <Link to="/about" className={classes.navAboutButton} id="aboutButton">
                       about
                     </Link>
                   </Button>

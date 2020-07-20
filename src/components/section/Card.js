@@ -122,7 +122,7 @@ const Card = ({ content }) => {
     </div>
   );
   return (
-    <div aria-label="card" className={classes.card}>
+    <div aria-label="card" id="card" className={classes.card}>
       <div className={classes.cardPositionContainer}>
         {!!content.category ? <CategoryLink /> : ""}
 

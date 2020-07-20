@@ -73,6 +73,7 @@ const DropMenu = ({ query, queryName, extension }) => {
                     to={`/${extension}/${element.id}`}
                     className={classes.dropMenuItem}
                     aria-label={`drop menu item ${i}`}
+                    id={`${queryName}_menuItem_${i}`}
                   >
                     {element.name}
                   </Link>

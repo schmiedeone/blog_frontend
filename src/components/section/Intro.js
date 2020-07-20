@@ -60,8 +60,6 @@ const useStyles = makeStyles((theme) => ({
 const Intro = ({ title, description, image }) => {
   const universalClasses = universalStyles();
   const classes = useStyles();
-  console.log(process.env.NODE_ENV)
-  console.log(process.env.REACT_APP_BACKEND_URL)
   const imageUrl =
     process.env.NODE_ENV !== "development"
       ? image[0].url

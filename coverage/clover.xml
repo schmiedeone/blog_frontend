@@ -1,65 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1594996215091" clover="3.2.0">
-  <project timestamp="1594996215091" name="All files">
-    <metrics statements="35" coveredstatements="35" conditionals="4" coveredconditionals="2" methods="14" coveredmethods="14" elements="53" coveredelements="51" complexity="0" loc="35" ncloc="35" packages="3" files="5" classes="5"/>
-    <package name="components.header">
-      <metrics statements="27" coveredstatements="27" conditionals="2" coveredconditionals="1" methods="12" coveredmethods="12"/>
-      <file name="DropMenu.js" path="/home/thomas/Documents/blog/blog_frontend/src/components/header/DropMenu.js">
-        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="30" count="3" type="stmt"/>
-        <line num="31" count="8" type="stmt"/>
-        <line num="33" count="8" type="stmt"/>
-        <line num="35" count="8" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="39" count="8" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="43" count="8" type="stmt"/>
-        <line num="69" count="4" type="stmt"/>
-        <line num="70" count="12" type="stmt"/>
-      </file>
-      <file name="MobileMenu.js" path="/home/thomas/Documents/blog/blog_frontend/src/components/header/MobileMenu.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="32" count="3" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="36" count="3" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
-      </file>
-      <file name="NavBar.js" path="/home/thomas/Documents/blog/blog_frontend/src/components/header/NavBar.js">
-        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="components.section">
-      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-      <file name="Intro.js" path="/home/thomas/Documents/blog/blog_frontend/src/components/section/Intro.js">
-        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="58" count="3" type="stmt"/>
-        <line num="59" count="3" type="stmt"/>
-        <line num="60" count="3" type="stmt"/>
-        <line num="62" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="66" count="3" type="stmt"/>
-      </file>
-    </package>
-    <package name="utils">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="data.js" path="/home/thomas/Documents/blog/blog_frontend/src/utils/data.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1595228134729" clover="3.2.0">
+  <project timestamp="1595228134729" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>
