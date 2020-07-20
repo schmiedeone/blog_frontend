@@ -7,7 +7,7 @@ import Query from "../Query";
 
 import universalStyles from "../../utils/universalStyles";
 
-const Section = ({ query, queryName }) => {
+const Section = ({ query, queryName, title }) => {
   const universalClasses = universalStyles();
   let { id } = useParams();
   return (
@@ -22,8 +22,10 @@ const Section = ({ query, queryName }) => {
                   description={data[queryName].description}
                   image={data[queryName].image}
                 />
+              ) : title ? (
+                <Intro title={title} />
               ) : (
-                ""
+                <div />
               )}
               <Deck
                 elements={

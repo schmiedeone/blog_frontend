@@ -60,10 +60,11 @@ const useStyles = makeStyles((theme) => ({
 const Intro = ({ title, description, image }) => {
   const universalClasses = universalStyles();
   const classes = useStyles();
-  const imageUrl =
+  const imageUrl = image ? 
     process.env.NODE_ENV !== "development"
       ? image[0].url
-      : process.env.REACT_APP_BACKEND_URL + image[0].url;
+      : process.env.REACT_APP_BACKEND_URL + image[0].url
+      : undefined;
 
   return (
     <div className={universalClasses.container}>
@@ -72,7 +73,8 @@ const Intro = ({ title, description, image }) => {
           <h1 className={classes.introTitle}>{title}</h1>
           <p className={classes.introDescription}>{description}</p>
         </div>
-        <div className={classes.introImageSizeContainer}>
+        {imageUrl ? (
+          <div className={classes.introImageSizeContainer}>
           <div className={classes.introImagePositionContainer}>
             <div
               className={classes.introImage}
@@ -82,6 +84,10 @@ const Intro = ({ title, description, image }) => {
             />
           </div>
         </div>
+        ) : (<div/>)
+
+        }
+        
       </div>
     </div>
   );
