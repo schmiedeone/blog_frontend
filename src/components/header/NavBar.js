@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 
 import DropMenu from "./DropMenu";
 import MobileMenu from "./MobileMenu";
+import Logo from "./Logo.js";
 
 import CATEGORIES_QUERY from "../../queries/category/categories";
 import AUTHORS_QUERY from "../../queries/author/authors";
 import universalStyles from "../../utils/universalStyles";
 
-import logo from "../../img/schmiede_logo_white.png";
+// import logo from "../../img/logo_white.png";
+// import logo from "../../img/logo_black.svg";
 
 const useStyles = makeStyles((theme) => ({
   navContainer: {
@@ -50,10 +52,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   navImage: {
-    width: "400px",
     float: "left",
     position: "absolute",
-    left: "-37px",
+    left: "0",
   },
 
   navAboutButton: {
@@ -78,12 +79,13 @@ const NavBar = () => {
             <li key={"homeButton"} className={classes.navImageItem}>
               <div className={classes.navImage}>
                 <Link to="/">
-                  <img
+                  {/* <img
                     src={logo}
                     alt={"schmiede.ONE Logo"}
                     className={classes.navImage}
                     id = {"logo_image"}
-                  />
+                  /> */}
+                  <Logo colour={theme.palette.primary.contrastText}/>
                 </Link>
               </div>
             </li>

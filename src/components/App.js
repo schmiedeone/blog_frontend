@@ -30,8 +30,8 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: "#141414",
-      contrastText: "#EBEBEB",
+      main: "#141414",//"#EBEBEB",
+      contrastText: "#EBEBEB",//"#141414",
     },
   },
 });
