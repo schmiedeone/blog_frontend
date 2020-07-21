@@ -19,7 +19,7 @@ import AUTHOR_ARTICLES_QUERY from "../queries/author/articles";
 import AUTHORS_QUERY from "../queries/author/authors";
 import CATEGORY_ARTICLES_QUERY from "../queries/category/articles";
 import CATEGORIES_QUERY from "../queries/category/categories";
-import LATEST_ARTICLES_QUERY from "../queries/article/lastest_articles";
+import LATEST_ARTICLE_QUERY from "../queries/article/lastest_articles";
 import MESSAGES_QUERY from "../queries/message/messages";
 
 import "./App.css";
@@ -68,12 +68,10 @@ function App() {
                             );
                           }}
                         </Query>
-                          <Intro
-                            title={"what's new"}
-                          />
-                          <Section
-                          query={LATEST_ARTICLES_QUERY}
+                        <Section
+                          query={LATEST_ARTICLE_QUERY}
                           queryName={"articles"}
+                          title={"what's new"}
                         />
                         <Section
                           query={ARTICLES_QUERY}

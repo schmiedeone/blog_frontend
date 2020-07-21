@@ -8,7 +8,7 @@ const AUTHOR_ARTICLES_QUERY = gql`
       image {
         url
       }
-      articles {
+      articles(sort: "published_at:DESC") {
         id
         title
         content

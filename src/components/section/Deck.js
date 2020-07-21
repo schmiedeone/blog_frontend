@@ -1,32 +1,20 @@
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
 import Card from "./Card";
+import Intro from "./Intro";
 
 import universalStyles from "../../utils/universalStyles";
 
 const useStyles = makeStyles((theme) => ({
   deck: {
     width: "100%",
-    display: "block",
   },
 
-  deckFat: {
-    width: "49.95%",
-    [theme.breakpoints.down("sm")]: {
-      width: "50%",
-    },
+  deckContainer: {
+    width: "50%",
     [theme.breakpoints.down("xs")]: {
       width: "100%",
-    },
-    float: "left",
-  },
-
-  deckThin: {
-    width: "25%",
-    [theme.breakpoints.down("sm")]: {
-      width: "50%",
     },
     float: "left",
   },
@@ -35,28 +23,39 @@ const useStyles = makeStyles((theme) => ({
 const Deck = ({ elements }) => {
   const classes = useStyles();
   const universalClasses = universalStyles();
-  const theme = useTheme();
-  const mobileSize = useMediaQuery(theme.breakpoints.down("xs"));
-  const tabletSize = useMediaQuery(theme.breakpoints.down("sm"));
-  /*
-  Setting desktopModulo to always be 1 keeps two columns of articles 
-  in desktop view rather than 4 and 1
-  */
-  const desktopModulo = 1; //!!elements[0].author ? 5 : 1;
-  const modulo = mobileSize ? 1 : tabletSize ? 2 : desktopModulo;
-
+  let content = elements[0];
   return (
     <div aria-label="deck" className={universalClasses.container}>
       <div className={classes.deck}>
-        {elements.map((content, index) => {
-          const widthClass =
-            index % modulo === 0 ? classes.deckFat : classes.deckThin;
-          return (
-            <div className={widthClass} key={`content_${content.id}`} id={`card_${index}`}>
+        {elements.length === 1 ? (
+          <div>
+            <div className={classes.deckContainer}>
               <Card content={content} />
             </div>
-          );
-        })}
+            <div className={classes.deckContainer}>
+              <Intro
+                title={!!content.title ? content.title : content.name}
+                description={!!content.author ? content.author.name : ""}
+              />
+            </div>
+          </div>
+        ) : (
+          <div>
+            {elements.map((content, index) => (
+              <div
+                className={classes.deckContainer}
+                key={`content_${content.id}`}
+                id={`card_${index}`}
+              >
+                <Card
+                  content={content}
+                  title={!!content.title ? content.title : content.name}
+                  author={!!content.author ? content.author.name : ""}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

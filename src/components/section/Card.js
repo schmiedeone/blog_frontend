@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Card = ({ content }) => {
+const Card = ({ content, title, author }) => {
   const classes = useStyles();
   const imageUrl = !!content.image
     ? process.env.REACT_APP_BACKEND_URL + content.image[0].url
@@ -141,15 +141,23 @@ const Card = ({ content }) => {
           />
           <div className={classes.cardDetailContainer}>
             <div className={classes.cardDetailElement}>
-              <p id="title" className={classes.cardTitle}>
-                {!!content.title ? content.title : content.name}
-              </p>
+              {!!title ? (
+                <p id="title" className={classes.cardTitle}>
+                  {title}
+                </p>
+              ) : (
+                <div />
+              )}
             </div>
 
             <div className={classes.cardDetailElement}>
-              <p id="author" className={classes.cardAuthor}>
-                {!!content.author ? content.author.name : ""}
-              </p>
+              {!!author ? (
+                <p id="author" className={classes.cardAuthor}>
+                  {author}
+                </p>
+              ) : (
+                <div />
+              )}
             </div>
           </div>
         </Link>

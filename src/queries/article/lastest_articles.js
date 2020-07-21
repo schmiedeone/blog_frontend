@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-const LATEST_ARTICLES_QUERY = gql`
+const LATEST_ARTICLE_QUERY = gql`
   query Articles {
-    articles(sort: "published_at:DESC", limit: 2) {
+    articles(sort: "published_at:DESC", limit: 1) {
       id
       title
       category {
@@ -20,4 +20,4 @@ const LATEST_ARTICLES_QUERY = gql`
   }
 `;
 
-export default LATEST_ARTICLES_QUERY;
+export default LATEST_ARTICLE_QUERY;
