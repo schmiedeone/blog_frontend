@@ -107,9 +107,7 @@ const useStyles = makeStyles((theme) => ({
 const Card = ({ content }) => {
   const classes = useStyles();
   const imageUrl = !!content.image
-    ? process.env.NODE_ENV !== "development"
-      ? content.image[0].url
-      : process.env.REACT_APP_BACKEND_URL + content.image[0].url
+    ? process.env.REACT_APP_BACKEND_URL + content.image[0].url
     : "";
 
   const CategoryLink = () => (

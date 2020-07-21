@@ -60,11 +60,9 @@ const useStyles = makeStyles((theme) => ({
 const Intro = ({ title, description, image }) => {
   const universalClasses = universalStyles();
   const classes = useStyles();
-  const imageUrl = image ? 
-    process.env.NODE_ENV !== "development"
-      ? image[0].url
-      : process.env.REACT_APP_BACKEND_URL + image[0].url
-      : undefined;
+  const imageUrl = !!image
+    ? process.env.REACT_APP_BACKEND_URL + image[0].url
+    : "";
 
   return (
     <div className={universalClasses.container}>
