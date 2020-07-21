@@ -66,7 +66,7 @@ describe("Category Content", () => {
     expect(await screen.findByLabelText("category")).toBeInTheDocument();
     expect(await screen.findByLabelText("deck")).toBeInTheDocument();
     expect(await screen.findAllByLabelText("card"));
-    expect(await screen.findByLabelText("intro")).toBeInTheDocument();
+    expect(await screen.findAllByLabelText("intro"));
     expect(await screen.findAllByRole("heading"));
   });
 });
@@ -94,7 +94,7 @@ describe("Author Content", () => {
     expect(await screen.findByLabelText("author")).toBeInTheDocument();
     expect(await screen.findByLabelText("deck")).toBeInTheDocument();
     expect(await screen.findAllByLabelText("card"));
-    expect(await screen.findByLabelText("intro")).toBeInTheDocument();
+    expect(await screen.findAllByLabelText("intro"));
     expect(await screen.findAllByRole("heading"));
   });
 });

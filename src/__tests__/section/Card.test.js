@@ -18,7 +18,7 @@ describe("Card", () => {
 
     render(
       <Router> 
-        <Card content={article} key={`article__${article.id}`} />
+        <Card content={article} title={article.title} key={`article__${article.id}`} />
       </Router>
     );
     
