@@ -55,7 +55,7 @@ const Article = () => {
     <Query query={ARTICLE_QUERY} id={id}>
       {({ data: { article } }) => {
         const imageUrl = !!article.image
-        ? process.env.REACT_APP_BACKEND_URL + article.image[0].url
+        ? article.image[0].url
         : "";
         return (
           <div className={universalClasses.container}>

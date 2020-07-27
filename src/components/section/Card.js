@@ -107,9 +107,8 @@ const useStyles = makeStyles((theme) => ({
 const Card = ({ content, title, author }) => {
   const classes = useStyles();
   const imageUrl = !!content.image
-    ? process.env.REACT_APP_BACKEND_URL + content.image[0].url
+    ? content.image[0].url
     : "";
-
   const CategoryLink = () => (
     <div className={classes.cardCategoryContainer}>
       <p id="category" className={classes.cardCategory}>

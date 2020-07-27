@@ -37,8 +37,8 @@ const theme = createMuiTheme({
 });
 
 const messageKey = {
-  welcome: 1,
-  about: 2,
+  welcome: "5f1ef6a08f9380001ce10bc3",
+  about: "5f1ef6d48f9380001ce10bc5",
 };
 
 function App() {

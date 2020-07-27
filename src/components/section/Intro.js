@@ -61,7 +61,7 @@ const Intro = ({ title, description, image }) => {
   const universalClasses = universalStyles();
   const classes = useStyles();
   const imageUrl = !!image
-    ? process.env.REACT_APP_BACKEND_URL + image[0].url
+    ? image[0].url
     : "";
 
   return (
