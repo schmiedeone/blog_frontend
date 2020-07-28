@@ -19,7 +19,7 @@ describe("NavBar", () => {
     expect(screen.getAllByText("Loading"));
     // expect(await screen.findByText(data.blogName)).toBeInTheDocument();
     expect(await screen.findByRole("list")).toBeInTheDocument();
-    expect(await screen.findByRole("img")).toBeInTheDocument();
+    // expect(await screen.findByRole("img")).toBeInTheDocument();/
     expect(await screen.findByText("categories")).toBeInTheDocument();
     expect(await screen.findByText("authors")).toBeInTheDocument();
   });

@@ -43,7 +43,7 @@ describe("Home Content", () => {
 describe("Category Content", () => {
   test("Category Content renders properly", async () => {
     const history = createMemoryHistory();
-    const route = "/category/3";
+    const route = "/category/5f1ecf378cd36c001c7328c0";
     history.push(route);
     render (
       <Router history={history}>
@@ -74,7 +74,7 @@ describe("Category Content", () => {
 describe("Author Content", () => {
   test("author Content renders properly", async () => {
     const history = createMemoryHistory();
-    const route = "/author/7";
+    const route = "/author/5f1ef11b8f9380001ce10bb1";
     history.push(route);
     render (
       <Router history={history}>

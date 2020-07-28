@@ -13,7 +13,7 @@ const Logo = ({ colour }) => {
         <path id="a" d="M0 .95h16.29v27.012H0z" />
         <path id="c" d="M0 35.467h279.036V0H0v21.29z" />
       </defs>
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <g transform="translate(0 7.467)">
           <mask id="b" fill="#fff">
             <use href="#a" />

@@ -11,7 +11,7 @@ import client from "../../utils/apolloClient";
 describe("Article", () => {
   test("Article renders properly", async () => {
     const history = createMemoryHistory();
-    const route = "/article/3";
+    const route = "/article/5f1ef5748f9380001ce10bb7";
     history.push(route);
     render(
       <Router history={history}>
