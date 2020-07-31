@@ -145,8 +145,8 @@ const Card = ({ content, title, author }) => {
                   {title}
                 </p>
               ) : (
-                <div />
-              )}
+                  <div />
+                )}
             </div>
 
             <div className={classes.cardDetailElement}>
@@ -155,8 +155,8 @@ const Card = ({ content, title, author }) => {
                   {author}
                 </p>
               ) : (
-                <div />
-              )}
+                  <div />
+                )}
             </div>
           </div>
         </Link>

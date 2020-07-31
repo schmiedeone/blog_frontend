@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-const MESSAGES_QUERY = gql`
-query Messages($id: ID!) {
-  message(id: $id) {
+const MESSAGE_QUERY = gql`
+query Messages($slug: String!) {
+  messages(where: {slug: $slug}) {
     name
     description
     image {
@@ -12,4 +12,4 @@ query Messages($id: ID!) {
 }
 `;
 
-export default MESSAGES_QUERY
+export default MESSAGE_QUERY

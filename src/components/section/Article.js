@@ -5,11 +5,9 @@ import Moment from "react-moment";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-import Query from "../Query";
 import SlugQuery from "../SlugQuery";
 
 import ARTICLE_QUERY from "../../queries/article/article";
-import ARTICLE_SLUG_QUERY from "../../queries/article/article_by_slug";
 
 import universalStyles from "../../utils/universalStyles";
 
@@ -54,7 +52,7 @@ const Article = () => {
   const universalClasses = universalStyles();
   let { slug } = useParams();
   return (
-    <SlugQuery query={ARTICLE_SLUG_QUERY} slug={slug}>
+    <SlugQuery query={ARTICLE_QUERY} slug={slug}>
       {({ data: { articles } }) => {
         const article = articles[0];
         const imageUrl = !!article.image

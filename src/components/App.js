@@ -9,22 +9,17 @@ import Footer from "./footer/Footer";
 import Intro from "./section/Intro";
 import NavBar from "./header/NavBar";
 import Section from "./section/Section";
-// import Query from "./Query";
 import SlugQuery from "./SlugQuery";
 
 import client from "../utils/apolloClient";
 import data from "../utils/data";
-import ARTICLE_SLUG_QUERY from "../queries/article/article_by_slug";
 import ARTICLES_QUERY from "../queries/article/articles";
 import AUTHOR_ARTICLES_QUERY from "../queries/author/articles";
-import AUTHOR_ARTICLES_SLUG_QUERY from "../queries/author/articles_by_slug";
 import AUTHORS_QUERY from "../queries/author/authors";
 import CATEGORY_ARTICLES_QUERY from "../queries/category/articles";
-import CATEGORY_ARTICLES_SLUG_QUERY from "../queries/category/articles_by_slug";
 import CATEGORIES_QUERY from "../queries/category/categories";
 import LATEST_ARTICLE_QUERY from "../queries/article/lastest_articles";
-// import MESSAGES_QUERY from "../queries/message/messages";
-import MESSAGE_SLUG_QUERY from "../queries/message/message_by_slug";
+import MESSAGE_QUERY from "../queries/message/messages";
 
 import "./App.css";
 
@@ -39,11 +34,6 @@ const theme = createMuiTheme({
     },
   },
 });
-
-const messageKey = {
-  welcome: "5f1ef6a08f9380001ce10bc3",
-  about: "5f1ef6d48f9380001ce10bc5",
-};
 
 function App() {
   return (
@@ -61,16 +51,7 @@ function App() {
                     path="/"
                     component={() => (
                       <div>
-                        <SlugQuery query={ARTICLE_SLUG_QUERY} slug={"creating-the-schmiedev-blog"}>
-                          {({ data }) => {
-                            console.log(data)
-                            return (
-                              <div
-                              />
-                            );
-                          }}
-                        </SlugQuery>
-                        <SlugQuery query={MESSAGE_SLUG_QUERY} slug={"welcome"}>
+                        <SlugQuery query={MESSAGE_QUERY} slug={"welcome"}>
                           {({ data }) => {
                             return (
                               <Intro
@@ -99,7 +80,7 @@ function App() {
                     path="/category/:slug"
                     component={() => (
                       <Section
-                        query={CATEGORY_ARTICLES_SLUG_QUERY}
+                        query={CATEGORY_ARTICLES_QUERY}
                         queryName={"categories"}
                       />
                     )}
@@ -109,7 +90,7 @@ function App() {
                     path="/author/:slug"
                     component={() => (
                       <Section
-                        query={AUTHOR_ARTICLES_SLUG_QUERY}
+                        query={AUTHOR_ARTICLES_QUERY}
                         queryName={"authors"}
                       />
                     )}
@@ -131,12 +112,11 @@ function App() {
                       <Section query={AUTHORS_QUERY} queryName={"authors"} />
                     )}
                   />
-
                   <Route
                     exact
                     path="/about"
                     component={() => (
-                      <SlugQuery query={MESSAGE_SLUG_QUERY} slug={"about"}>
+                      <SlugQuery query={MESSAGE_QUERY} slug={"about"}>
                         {({ data }) => {
                           return (
                             <Intro

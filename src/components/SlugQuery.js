@@ -5,7 +5,6 @@ const SlugQuery = ({ children, query, slug }) => {
   const { data, loading, error } = useQuery(query, {
     variables: { slug },
   });
-//   console.log(slug)
 
   if (loading) return <p>Loading</p>;
   if (error) {

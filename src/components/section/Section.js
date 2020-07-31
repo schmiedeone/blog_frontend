@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 
 import Deck from "./Deck";
 import Intro from "./Intro";
-import Query from "../Query";
 import SlugQuery from "../SlugQuery";
 
 import universalStyles from "../../utils/universalStyles";
@@ -11,7 +10,7 @@ import universalStyles from "../../utils/universalStyles";
 const Section = ({ query, queryName, title }) => {
   const universalClasses = universalStyles();
   let { slug } = useParams();
-  console.log(query)
+
   return (
     <div aria-label={queryName} className={universalClasses.container}>
       <SlugQuery query={query} slug={slug}>
@@ -27,8 +26,8 @@ const Section = ({ query, queryName, title }) => {
               ) : title ? (
                 <Intro title={title} />
               ) : (
-                <div />
-              )}
+                    <div />
+                  )}
               <Deck
                 elements={
                   !!data[queryName][0].articles

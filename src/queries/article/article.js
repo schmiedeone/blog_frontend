@@ -1,9 +1,10 @@
 import gql from "graphql-tag";
 
-const ARTICLE_QUERY = gql`
-  query Articles($id: ID!) {
-    article(id: $id) {
+const ARTICLE_SLUG_QUERY = gql`
+  query Articles($slug: String!) {
+    articles(where: {slug: $slug}) {
       id
+      slug
       title
       content
       image {
@@ -11,10 +12,12 @@ const ARTICLE_QUERY = gql`
       }
       category {
         id
+        slug
         name
       }
       author {
         id
+        slug
         name
       }
       published_at
@@ -22,4 +25,4 @@ const ARTICLE_QUERY = gql`
   }
 `;
 
-export default ARTICLE_QUERY;
+export default ARTICLE_SLUG_QUERY;

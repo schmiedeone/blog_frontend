@@ -12,9 +12,6 @@ import CATEGORIES_QUERY from "../../queries/category/categories";
 import AUTHORS_QUERY from "../../queries/author/authors";
 import universalStyles from "../../utils/universalStyles";
 
-// import logo from "../../img/logo_white.png";
-// import logo from "../../img/logo_black.svg";
-
 const useStyles = makeStyles((theme) => ({
   navContainer: {
     margin: "auto",
@@ -79,12 +76,6 @@ const NavBar = () => {
             <li key={"homeButton"} className={classes.navImageItem}>
               <div className={classes.navImage}>
                 <Link to="/">
-                  {/* <img
-                    src={logo}
-                    alt={"schmiede.ONE Logo"}
-                    className={classes.navImage}
-                    id = {"logo_image"}
-                  /> */}
                   <Logo colour={theme.palette.primary.contrastText}/>
                 </Link>
               </div>
