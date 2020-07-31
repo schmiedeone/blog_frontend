@@ -112,7 +112,7 @@ const Card = ({ content, title, author }) => {
   const CategoryLink = () => (
     <div className={classes.cardCategoryContainer}>
       <p id="category" className={classes.cardCategory}>
-        <Link to={`/category/${content.category.id}`}>
+        <Link to={`/category/${content.category.slug}`}>
           {content.category.name}
         </Link>
       </p>
@@ -125,7 +125,7 @@ const Card = ({ content, title, author }) => {
 
         <Link
           className={classes.cardLink}
-          to={`/${content.__typename}/${content.id}`}
+          to={`/${content.__typename}/${content.slug}`}
         >
           <div
             className={

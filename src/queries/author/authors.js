@@ -4,6 +4,7 @@ const AUTHORS_QUERY = gql`
   query Authors {
     authors{
       id
+      slug
       name
       image {
         url

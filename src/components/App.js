@@ -9,18 +9,22 @@ import Footer from "./footer/Footer";
 import Intro from "./section/Intro";
 import NavBar from "./header/NavBar";
 import Section from "./section/Section";
-import Query from "./Query";
+// import Query from "./Query";
+import SlugQuery from "./SlugQuery";
 
 import client from "../utils/apolloClient";
 import data from "../utils/data";
-
+import ARTICLE_SLUG_QUERY from "../queries/article/article_by_slug";
 import ARTICLES_QUERY from "../queries/article/articles";
 import AUTHOR_ARTICLES_QUERY from "../queries/author/articles";
+import AUTHOR_ARTICLES_SLUG_QUERY from "../queries/author/articles_by_slug";
 import AUTHORS_QUERY from "../queries/author/authors";
 import CATEGORY_ARTICLES_QUERY from "../queries/category/articles";
+import CATEGORY_ARTICLES_SLUG_QUERY from "../queries/category/articles_by_slug";
 import CATEGORIES_QUERY from "../queries/category/categories";
 import LATEST_ARTICLE_QUERY from "../queries/article/lastest_articles";
-import MESSAGES_QUERY from "../queries/message/messages";
+// import MESSAGES_QUERY from "../queries/message/messages";
+import MESSAGE_SLUG_QUERY from "../queries/message/message_by_slug";
 
 import "./App.css";
 
@@ -57,17 +61,26 @@ function App() {
                     path="/"
                     component={() => (
                       <div>
-                        <Query query={MESSAGES_QUERY} id={messageKey.welcome}>
+                        <SlugQuery query={ARTICLE_SLUG_QUERY} slug={"creating-the-schmiedev-blog"}>
                           {({ data }) => {
+                            console.log(data)
                             return (
-                              <Intro
-                                title={data.message.name}
-                                description={data.message.description}
-                                image={data.message.image}
+                              <div
                               />
                             );
                           }}
-                        </Query>
+                        </SlugQuery>
+                        <SlugQuery query={MESSAGE_SLUG_QUERY} slug={"welcome"}>
+                          {({ data }) => {
+                            return (
+                              <Intro
+                                title={data.messages[0].name}
+                                description={data.messages[0].description}
+                                image={data.messages[0].image}
+                              />
+                            );
+                          }}
+                        </SlugQuery>
                         <Section
                           query={LATEST_ARTICLE_QUERY}
                           queryName={"articles"}
@@ -83,21 +96,21 @@ function App() {
                   />
                   <Route
                     exact
-                    path="/category/:id"
+                    path="/category/:slug"
                     component={() => (
                       <Section
-                        query={CATEGORY_ARTICLES_QUERY}
-                        queryName={"category"}
+                        query={CATEGORY_ARTICLES_SLUG_QUERY}
+                        queryName={"categories"}
                       />
                     )}
                   />
                   <Route
                     exact
-                    path="/author/:id"
+                    path="/author/:slug"
                     component={() => (
                       <Section
-                        query={AUTHOR_ARTICLES_QUERY}
-                        queryName={"author"}
+                        query={AUTHOR_ARTICLES_SLUG_QUERY}
+                        queryName={"authors"}
                       />
                     )}
                   />
@@ -123,20 +136,20 @@ function App() {
                     exact
                     path="/about"
                     component={() => (
-                      <Query query={MESSAGES_QUERY} id={messageKey.about}>
+                      <SlugQuery query={MESSAGE_SLUG_QUERY} slug={"about"}>
                         {({ data }) => {
                           return (
                             <Intro
-                              title={data.message.name}
-                              description={data.message.description}
-                              image={data.message.image}
+                              title={data.messages[0].name}
+                              description={data.messages[0].description}
+                              image={data.messages[0].image}
                             />
                           );
                         }}
-                      </Query>
+                      </SlugQuery>
                     )}
                   />
-                  <Route path="/article/:id" component={Article} exact />
+                  <Route path="/article/:slug" component={Article} exact />
                 </Switch>
                 <Footer footerText={data.footerText} />
               </React.StrictMode>

@@ -32,8 +32,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "aws s3 sync ./build s3://schmiede-blog/"
+    "predeploy": "rm -rf ./build/ && yarn build",
+    "clean": "aws s3 rm --recursive s3://schmiede-blog",
+    "deploy": "aws s3 cp ./build/ s3://schmiede-blog --recursive --acl public-read",
+    "clean:deploy": "yarn clean && yarn deploy"
   },
   "eslintConfig": {
     "extends": "react-app"

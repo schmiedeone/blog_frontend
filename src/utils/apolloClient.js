@@ -4,7 +4,7 @@ import { HttpLink } from "apollo-link-http";
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: `${process.env.REACT_APP_BACKEND_URL}/graphql`
+  uri: process.env.NODE_ENV === 'development' ? `${process.env.REACT_APP_BACKEND_URL_DEVELOPMENT}/graphql` : `${process.env.REACT_APP_BACKEND_URL}/graphql`
 });
 const client = new ApolloClient({
   cache,

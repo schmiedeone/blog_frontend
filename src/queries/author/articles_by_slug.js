@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-const CATEGORY_ARTICLES_QUERY = gql`
-  query Category($id: ID!) {
-    category(id: $id) {
+const AUTHOR_ARTICLES_SLUG_QUERY = gql`
+  query Authors($slug: String!) {
+    authors(where: {slug: $slug}) {
       name
       description
       image {
@@ -16,7 +16,7 @@ const CATEGORY_ARTICLES_QUERY = gql`
         image {
           url
         }
-        author {
+        category {
           id
           slug
           name
@@ -26,4 +26,4 @@ const CATEGORY_ARTICLES_QUERY = gql`
   }
 `;
 
-export default CATEGORY_ARTICLES_QUERY;
+export default AUTHOR_ARTICLES_SLUG_QUERY;

@@ -4,6 +4,7 @@ const LATEST_ARTICLE_QUERY = gql`
   query Articles {
     articles(sort: "published_at:DESC", limit: 1) {
       id
+      slug
       title
       category {
         id

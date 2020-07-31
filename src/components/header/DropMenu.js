@@ -70,7 +70,7 @@ const DropMenu = ({ query, queryName, extension }) => {
               return (
                 <MenuItem key={element.id} onClick={handleClose}>
                   <Link
-                    to={`/${extension}/${element.id}`}
+                    to={`/${extension}/${element.slug}`}
                     className={classes.dropMenuItem}
                     aria-label={`drop menu item ${i}`}
                     id={`${queryName}_menuItem_${i}`}

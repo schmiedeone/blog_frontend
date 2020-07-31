@@ -6,8 +6,10 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 import Query from "../Query";
+import SlugQuery from "../SlugQuery";
 
 import ARTICLE_QUERY from "../../queries/article/article";
+import ARTICLE_SLUG_QUERY from "../../queries/article/article_by_slug";
 
 import universalStyles from "../../utils/universalStyles";
 
@@ -50,10 +52,11 @@ const useStyles = makeStyles((theme) => ({
 const Article = () => {
   const classes = useStyles();
   const universalClasses = universalStyles();
-  let { id } = useParams();
+  let { slug } = useParams();
   return (
-    <Query query={ARTICLE_QUERY} id={id}>
-      {({ data: { article } }) => {
+    <SlugQuery query={ARTICLE_SLUG_QUERY} slug={slug}>
+      {({ data: { articles } }) => {
+        const article = articles[0];
         const imageUrl = !!article.image
         ? article.image[0].url
         : "";
@@ -64,7 +67,7 @@ const Article = () => {
                 <h1>{article.title}</h1>
                 {!!article.category ? (
                   <Link
-                    to={`/category/${article.category.id}`}
+                    to={`/category/${article.category.slug}`}
                     className={classes.articleCategory}
                   >
                     <h3>{article.category.name}</h3>
@@ -88,7 +91,7 @@ const Article = () => {
                     className={classes.articleText}
                   />
                   <div className={classes.articleDetails}>
-                    <Link to={`/author/${article.author.id}`}>
+                    <Link to={`/author/${article.author.slug}`}>
                       <h2>{article.author.name}</h2>
                     </Link>
 
@@ -104,7 +107,7 @@ const Article = () => {
           </div>
         );
       }}
-    </Query>
+    </SlugQuery>
   );
 };
 

@@ -10,6 +10,7 @@ const AUTHOR_ARTICLES_QUERY = gql`
       }
       articles(sort: "published_at:DESC") {
         id
+        slug
         title
         content
         image {
@@ -17,6 +18,7 @@ const AUTHOR_ARTICLES_QUERY = gql`
         }
         category {
           id
+          slug
           name
         }
       }

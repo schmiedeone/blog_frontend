@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-const CATEGORY_ARTICLES_QUERY = gql`
-  query Category($id: ID!) {
-    category(id: $id) {
+const CATEGORY_ARTICLES_SLUG_QUERY = gql`
+  query Categories($slug: String!) {
+    categories(where: {slug: $slug}) {
       name
       description
       image {
@@ -26,4 +26,4 @@ const CATEGORY_ARTICLES_QUERY = gql`
   }
 `;
 
-export default CATEGORY_ARTICLES_QUERY;
+export default CATEGORY_ARTICLES_SLUG_QUERY;

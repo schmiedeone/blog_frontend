@@ -4,6 +4,7 @@ const ARTICLES_QUERY = gql`
   query Articles {
     articles(sort: "published_at:DESC", start: 1) {
       id
+      slug
       title
       category {
         id
