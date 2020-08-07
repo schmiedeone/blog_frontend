@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
+import { Textfit } from "react-textfit";
 
 import universalStyles from "../../utils/universalStyles";
 
@@ -7,25 +8,30 @@ const imageBreakPoint = 800;
 
 const useStyles = makeStyles((theme) => ({
   intro: {
-    padding: "50px 0.5rem",
+    padding: "10px 0.5rem",
     display: "flex",
     width: "100%",
     color: theme.palette.primary.contrastText,
   },
 
-  introText: {
+  introTextContainer: {
     width: "70%",
     [theme.breakpoints.down(imageBreakPoint)]: {
       width: "100%",
     },
     color: theme.palette.primary.contrastText,
+    height: "100%"
   },
 
-  introTitle: {
-    fontSize: "5rem",
-    [theme.breakpoints.down(imageBreakPoint)]: {
-      fontSize: "3rem",
+  introText: {
+    height: "200px",
+    [theme.breakpoints.up("sm")]: {
+      height: "20vw",
     },
+    [theme.breakpoints.up(1280)]: {
+      height: "200px",
+    },
+    paddding: "1rem",
   },
 
   introDescription: {
@@ -67,25 +73,25 @@ const Intro = ({ title, description, image }) => {
   return (
     <div className={universalClasses.container}>
       <div aria-label="intro" className={classes.intro}>
-        <div className={classes.introText}>
-          <h1 className={classes.introTitle}>{title}</h1>
+        <div className={classes.introTextContainer}>
+          <Textfit mode="multi" className={classes.introText} >
+            <h1>{title}</h1>
+          </Textfit>
           <p className={classes.introDescription}>{description}</p>
         </div>
         {imageUrl ? (
           <div className={classes.introImageSizeContainer}>
-          <div className={classes.introImagePositionContainer}>
-            <div
-              className={classes.introImage}
-              style={{
-                backgroundImage: `url(${imageUrl})`,
-              }}
-            />
+            <div className={classes.introImagePositionContainer}>
+              <div
+                className={classes.introImage}
+                style={{
+                  backgroundImage: `url(${imageUrl})`,
+                }}
+              />
+            </div>
           </div>
-        </div>
-        ) : (<div/>)
-
+        ) : (<div />)
         }
-        
       </div>
     </div>
   );
