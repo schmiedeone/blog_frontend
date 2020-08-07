@@ -17,7 +17,7 @@ const Section = ({ query, queryName, title }) => {
         {({ data }) => {
           return (
             <div>
-              {!!data[queryName][0].name ? (
+              {!!data[queryName][0].articles ? (
                 <Intro
                   title={data[queryName][0].name}
                   description={data[queryName][0].description}
