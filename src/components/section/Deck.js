@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
       height: "40vw",
     },
   },
-
 }));
 
 const Deck = ({ elements }) => {
@@ -38,17 +37,25 @@ const Deck = ({ elements }) => {
   const classes = useStyles();
   const universalClasses = universalStyles();
   let content = elements[0];
+  const bigScreen = useMediaQuery(theme.breakpoints.up(600));
+
+  if (!content) {
+    return null;
+  }
   const title = !!content.title ? content.title : content.name;
   const author = !!content.author ? content.author.name : "";
 
-  const bigScreen = useMediaQuery(theme.breakpoints.up(600));
   return (
     <div aria-label="deck" className={universalClasses.container}>
       <div className={classes.deck}>
         {elements.length === 1 ? (
           <div>
             <div className={classes.deckContainer}>
-              <Card content={content} title={bigScreen ? "" : title} author={bigScreen ? "" : author} />
+              <Card
+                content={content}
+                title={bigScreen ? "" : title}
+                author={bigScreen ? "" : author}
+              />
             </div>
             <div className={classes.deckContainer}>
               <Textfit mode="multi" className={classes.soloCardText} min={10}>
@@ -58,22 +65,18 @@ const Deck = ({ elements }) => {
             </div>
           </div>
         ) : (
-            <div>
-              {elements.map((content, index) => (
-                <div
-                  className={classes.deckContainer}
-                  key={`content_${content.id}`}
-                  id={`card_${index}`}
-                >
-                  <Card
-                    content={content}
-                    title={title}
-                    author={author}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+          <div>
+            {elements.map((content, index) => (
+              <div
+                className={classes.deckContainer}
+                key={`content_${content.id}`}
+                id={`card_${index}`}
+              >
+                <Card content={content} title={title} author={author} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
