@@ -37,12 +37,6 @@ const Deck = ({ elements }) => {
   const classes = useStyles();
   const universalClasses = universalStyles();
   let content = elements[0];
-  // let title = "";
-  // let author = "";
-  // if (content) {
-  //   author = !!content.author ? content.author.name : "";
-  //   title = !!content.title ? content.title : content.name;
-  // }
 
   const author = content?.author?.name ?? "";
   const title = content?.title ?? content?.name ?? "";
