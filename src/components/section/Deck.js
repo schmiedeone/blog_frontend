@@ -41,7 +41,6 @@ const Deck = ({ elements }) => {
   const author = content?.author?.name ?? "";
   const title = content?.title ?? content?.name ?? "";
 
-  const bigScreen = useMediaQuery(theme.breakpoints.up(600));
   return (
     <div aria-label="deck" className={universalClasses.container}>
       <div className={classes.deck}>
