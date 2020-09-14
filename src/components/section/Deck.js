@@ -37,13 +37,9 @@ const Deck = ({ elements }) => {
   const classes = useStyles();
   const universalClasses = universalStyles();
   let content = elements[0];
-  const bigScreen = useMediaQuery(theme.breakpoints.up(600));
 
-  if (!content) {
-    return null;
-  }
-  const title = !!content.title ? content.title : content.name;
-  const author = !!content.author ? content.author.name : "";
+  const author = content?.author?.name ?? "";
+  const title = content?.title ?? content?.name ?? "";
 
   return (
     <div aria-label="deck" className={universalClasses.container}>
